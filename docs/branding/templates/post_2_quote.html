@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MugnaDigital - Quote Template</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Instagram Post Container (1080x1080 scaled down for view) -->
+    <div class="relative w-[540px] h-[540px] bg-white text-zinc-950 flex flex-col justify-center items-center p-16 text-center shadow-2xl rounded-lg">
+
+        <!-- Logo Watermark -->
+        <div class="absolute top-8 left-8">
+            <h3 class="text-lg font-bold tracking-tight text-zinc-900">MugnaDigital</h3>
+        </div>
+
+        <!-- Quote Icon -->
+        <div class="text-blue-600 mb-6 text-6xl opacity-20">
+            &ldquo;
+        </div>
+
+        <!-- Main Content -->
+        <div class="z-10 flex flex-col gap-6">
+            <h1 class="text-3xl md:text-4xl font-semibold leading-snug text-zinc-900">
+                "Design is not just what it looks like and feels like. Design is how it works."
+            </h1>
+
+            <div class="h-1 w-12 bg-blue-600 mx-auto rounded-full"></div>
+
+            <div class="flex flex-col items-center gap-1">
+                <p class="font-bold text-zinc-800">Steve Jobs</p>
+                <p class="text-sm text-zinc-500 uppercase tracking-wide">Inspiration</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="absolute bottom-8 w-full text-center">
+            <p class="text-sm text-zinc-400">@mugnadigital</p>
+        </div>
+    </div>
+
+</body>
+</html>

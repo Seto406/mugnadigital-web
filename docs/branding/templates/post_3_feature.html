@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MugnaDigital - Feature Template</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Instagram Post Container (1080x1080 scaled down for view) -->
+    <div class="relative w-[540px] h-[540px] bg-zinc-950 text-white flex flex-col items-center justify-center p-12 shadow-2xl rounded-lg border border-zinc-900">
+
+        <!-- Background Grid -->
+        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
+
+        <!-- Logo -->
+        <div class="absolute top-8 right-8">
+             <h3 class="text-lg font-bold tracking-tight text-white/50">MD</h3>
+        </div>
+
+        <!-- Content -->
+        <div class="z-10 flex flex-col items-center text-center gap-6">
+
+            <!-- Icon Container -->
+            <div class="w-24 h-24 bg-zinc-900 rounded-2xl flex items-center justify-center border border-zinc-800 shadow-xl mb-4 group hover:border-blue-600/50 transition-colors duration-500">
+                <i data-lucide="zap" class="w-10 h-10 text-blue-500"></i>
+            </div>
+
+            <h2 class="text-4xl font-bold">Lightning Fast</h2>
+
+            <p class="text-zinc-400 max-w-xs text-lg leading-relaxed">
+                Optimized performance for a seamless user experience. Next.js under the hood.
+            </p>
+
+            <button class="mt-4 px-6 py-3 bg-white text-zinc-950 rounded-full font-semibold hover:bg-zinc-200 transition-colors">
+                Learn More
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
