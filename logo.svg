@@ -1,0 +1,19 @@
+<svg width="300" height="80" viewBox="0 0 300 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="80" fill="white"/>
+
+  <!-- Icon Group translated to (10, 8) -->
+  <g transform="translate(10, 8)">
+      <!-- Left Bracket -->
+      <path d="M14 16C12 16 10 18 10 20V28C10 30 8 32 6 32C8 32 10 34 10 36V44C10 46 12 48 14 48" stroke="#0F172A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Right Bracket -->
+      <path d="M50 16C52 16 54 18 54 20V28C54 30 56 32 58 32C56 32 54 34 54 36V44C54 46 52 48 50 48" stroke="#0F172A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Pencil Body (Digital Pixels) -->
+      <rect x="26" y="14" width="12" height="12" rx="1" fill="#0F172A"/>
+      <rect x="26" y="29" width="12" height="12" rx="1" fill="#0F172A"/>
+      <!-- Tip -->
+      <path d="M26 44H38L32 54L26 44Z" fill="#0F172A"/>
+  </g>
+
+  <!-- Text -->
+  <text x="85" y="52" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="700" fill="#0F172A" letter-spacing="-1">MugnaDigital</text>
+</svg>
