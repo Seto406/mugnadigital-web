@@ -1,0 +1,13 @@
+
+> mugnadigital@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+
+✓ Starting...
+✓ Ready in 1034ms
+○ Compiling / ...
+ GET / 200 in 4.4s (compile: 4.1s, render: 314ms)
+[?25h
