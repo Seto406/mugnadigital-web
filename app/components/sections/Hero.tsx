@@ -5,10 +5,10 @@ import { WeavePattern } from '../ui/WeavePattern';
 export function Hero() {
   return (
     <div className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
-      <WeavePattern />
-
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-palay/20 blur-[120px] rounded-full pointer-events-none" />
+
+      <WeavePattern />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-palay/10 border border-brand-palay/20 text-brand-palay text-sm font-medium mb-8">
