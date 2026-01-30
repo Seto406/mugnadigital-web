@@ -1,0 +1,23 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="white"/>
+
+  <!-- Central Diamond (Core) -->
+  <path d="M32 20L44 32L32 44L20 32L32 20Z" fill="#0F172A"/>
+
+  <!-- Surrounding Diamonds (Rays/Weave Pattern) -->
+  <!-- Top -->
+  <path d="M32 4L38 10L32 16L26 10L32 4Z" fill="#0F172A"/>
+  <!-- Bottom -->
+  <path d="M32 48L38 54L32 60L26 54L32 48Z" fill="#0F172A"/>
+  <!-- Left -->
+  <path d="M4 32L10 38L16 32L10 26L4 32Z" fill="#0F172A"/>
+  <!-- Right -->
+  <path d="M48 32L54 38L60 32L54 26L48 32Z" fill="#0F172A"/>
+
+  <!-- Diagonals (Smaller squares/diamonds) -->
+  <rect x="12" y="12" width="8" height="8" fill="#0F172A"/>
+  <rect x="44" y="12" width="8" height="8" fill="#0F172A"/>
+  <rect x="12" y="44" width="8" height="8" fill="#0F172A"/>
+  <rect x="44" y="44" width="8" height="8" fill="#0F172A"/>
+
+</svg>

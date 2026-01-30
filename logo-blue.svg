@@ -1,0 +1,28 @@
+<svg width="300" height="80" viewBox="0 0 300 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="80" fill="white"/>
+
+  <!-- Icon Group translated to (10, 8) -->
+  <g transform="translate(10, 8)">
+      <!-- Central Diamond (Core) -->
+      <path d="M32 20L44 32L32 44L20 32L32 20Z" fill="#0038A8"/>
+
+      <!-- Surrounding Diamonds (Rays/Weave Pattern) -->
+      <!-- Top -->
+      <path d="M32 4L38 10L32 16L26 10L32 4Z" fill="#0038A8"/>
+      <!-- Bottom -->
+      <path d="M32 48L38 54L32 60L26 54L32 48Z" fill="#0038A8"/>
+      <!-- Left -->
+      <path d="M4 32L10 38L16 32L10 26L4 32Z" fill="#0038A8"/>
+      <!-- Right -->
+      <path d="M48 32L54 38L60 32L54 26L48 32Z" fill="#0038A8"/>
+
+      <!-- Diagonals (Smaller squares/diamonds) -->
+      <rect x="12" y="12" width="8" height="8" fill="#0038A8"/>
+      <rect x="44" y="12" width="8" height="8" fill="#0038A8"/>
+      <rect x="12" y="44" width="8" height="8" fill="#0038A8"/>
+      <rect x="44" y="44" width="8" height="8" fill="#0038A8"/>
+  </g>
+
+  <!-- Text -->
+  <text x="85" y="52" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="700" fill="#0038A8" letter-spacing="-1">MugnaDigital</text>
+</svg>
