@@ -1,29 +1,42 @@
 import React from 'react';
+import Link from 'next/link';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  className?: string;
   children: React.ReactNode;
 }
 
-export function Button({ variant = 'primary', size = 'md', className = '', children, ...props }: ButtonProps) {
-  const baseStyles = "rounded-md font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-palay focus:ring-offset-2 focus:ring-offset-brand-void";
+export function Button({ variant = 'primary', size = 'md', className = '', href, children, ...props }: ButtonProps) {
+  const baseStyles = "inline-flex items-center justify-center rounded-md font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-palay focus:ring-offset-2 focus:ring-offset-brand-void cursor-pointer";
 
-  const variants = {
-    primary: "bg-brand-palay text-brand-void hover:bg-brand-palay/90 hover:shadow-[0_0_15px_rgba(16,185,129,0.5)]",
-    secondary: "border-2 border-brand-palay text-brand-palay hover:bg-brand-palay/10",
-    ghost: "text-brand-mist hover:text-brand-palay"
+  const variantStyles = {
+    primary: "bg-brand-palay text-brand-void hover:bg-brand-palay/90 hover:shadow-[0_0_15px_rgba(16,185,129,0.5)] border border-transparent",
+    secondary: "bg-transparent border-2 border-brand-palay text-brand-palay hover:bg-brand-palay/10",
+    ghost: "bg-transparent text-brand-mist hover:text-brand-palay border border-transparent"
   };
 
-  const sizes = {
+  const sizeStyles = {
     sm: "px-3 py-1.5 text-sm",
     md: "px-6 py-3 text-base",
     lg: "px-8 py-4 text-lg"
   };
 
+  const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+
+  if (href) {
+    return (
+      <Link href={href} className={classes} {...(props as any)}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
     <button
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
+      className={classes}
       {...props}
     >
       {children}

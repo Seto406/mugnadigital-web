@@ -20,10 +20,10 @@ export function CallToAction() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button variant="primary" size="lg" className="text-lg px-10">
+          <Button variant="primary" size="lg" className="text-lg px-10" href="#contact">
             Start Your Project
           </Button>
-          <Button variant="secondary" size="lg" className="text-lg px-10">
+          <Button variant="secondary" size="lg" className="text-lg px-10" href="#contact">
             Contact Sales
           </Button>
         </div>

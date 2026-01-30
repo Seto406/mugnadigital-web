@@ -3,28 +3,29 @@ import { Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    content: "MugnaDigital transformed our local bakery into a digital brand. Their 'Cyber-Tropical' approach really stands out.",
+    content: "MugnaDigital transformed our traditional business into a modern digital powerhouse. Their attention to detail and understanding of our local market was impressive.",
     author: "Maria Santos",
-    role: "Owner, Santos Sweets",
+    role: "Owner, Santos Delicacies",
   },
   {
-    content: "Fast, reliable, and truly world-class. The team is easy to work with and they understand the local market.",
-    author: "Juan Dela Cruz",
-    role: "CEO, Visayan Tech",
+    content: "The best development team in the Visayas. They delivered our e-commerce platform ahead of schedule and it looks absolutely stunning.",
+    author: "James Tan",
+    role: "CEO, Visayan Retail Group",
   },
   {
-    content: "The best investment we made for our startup. The 'Mugna' spirit is real in their work.",
-    author: "Ana Reyes",
-    role: "Founder, EcoTours",
+    content: "What sets them apart is their 'Mugna' spirit—they really care about creating something unique and valuable. Highly recommended!",
+    author: "Sarah Johnson",
+    role: "Founder, Island EcoTours",
   },
 ];
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-brand-void relative overflow-hidden">
+    <section id="testimonials" className="py-24 bg-brand-void relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
          <div className="absolute top-1/4 right-0 w-[300px] h-[300px] bg-brand-teal/10 blur-[100px] rounded-full" />
+         <div className="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-brand-palay/10 blur-[100px] rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -41,13 +42,13 @@ export function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-palay/50 transition-colors relative group"
+              className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-palay/50 transition-colors relative group flex flex-col"
             >
               <Quote className="w-8 h-8 text-brand-palay mb-6 opacity-50 group-hover:opacity-100 transition-opacity" />
-              <p className="text-slate-300 mb-6 leading-relaxed">
-                "{testimonial.content}"
+              <p className="text-slate-300 mb-6 leading-relaxed flex-grow italic">
+                &quot;{testimonial.content}&quot;
               </p>
-              <div>
+              <div className="mt-auto pt-6 border-t border-white/5">
                 <p className="text-white font-semibold">{testimonial.author}</p>
                 <p className="text-brand-teal text-sm">{testimonial.role}</p>
               </div>
