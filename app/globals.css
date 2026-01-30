@@ -10,9 +10,10 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-brand-deep: #0F172A;
-  --color-brand-spark: #38BDF8;
-  --color-brand-growth: #4ADE80;
+  --color-brand-void: #0f172a;
+  --color-brand-mist: #f8fafc;
+  --color-brand-palay: #10b981;
+  --color-brand-teal: #14b8a6;
 }
 
 @media (prefers-color-scheme: dark) {
