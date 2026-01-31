@@ -45,7 +45,7 @@ export function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <Reveal key={testimonial.author} delay={index * 0.1} className="h-full">
                 <div
-                className="p-8 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-brand-palay/50 transition-colors relative group flex flex-col h-full"
+                className="p-8 rounded-2xl bg-white dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-brand-palay/50 transition-colors relative group flex flex-col h-full"
                 >
                 <Quote className="w-8 h-8 text-brand-palay mb-6 opacity-50 group-hover:opacity-100 transition-opacity" />
                 <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed flex-grow italic">
