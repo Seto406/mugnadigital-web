@@ -34,14 +34,14 @@ export function Testimonials() {
             Trusted by Local Innovators
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Here's what our partners say about building with the Filipino Engine.
+            Here&apos;s what our partners say about building with the Filipino Engine.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial) => (
             <div
-              key={index}
+              key={testimonial.author}
               className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-palay/50 transition-colors relative group flex flex-col"
             >
               <Quote className="w-8 h-8 text-brand-palay mb-6 opacity-50 group-hover:opacity-100 transition-opacity" />
