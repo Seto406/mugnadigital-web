@@ -39,7 +39,7 @@ export function About() {
                 </div>
                 <div>
                   <h4 className="text-white font-semibold mb-1">Our Speed</h4>
-                  <p className="text-slate-500 text-sm">Rapid prototyping and deployment without compromising quality.</p>
+                  <p className="text-slate-500 text-sm">Accelerated by AI agents, refined by human experts.</p>
                 </div>
               </div>
             </div>

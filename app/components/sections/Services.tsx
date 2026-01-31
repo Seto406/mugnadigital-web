@@ -31,7 +31,7 @@ export function Services() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Expertise</h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            We offer a full suite of digital services to bring your vision to life.
+            We combine <span className="text-brand-palay font-medium">precision hardcoding</span> with <span className="text-brand-teal font-medium">advanced AI agents</span> to deliver professional digital services faster and more affordably.
           </p>
         </div>
 
