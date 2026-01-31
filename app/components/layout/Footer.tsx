@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Heart } from 'lucide-react';
 
 export function Footer() {
@@ -7,7 +8,15 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold text-white mb-2">MugnaDigital</h3>
+            <div className="mb-4 flex justify-center md:justify-start">
+              <Image
+                src="/logo-white.svg"
+                alt="MugnaDigital"
+                width={150}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </div>
             <p className="text-slate-400 text-sm">
               The Filipino Engine for Digital Innovation.
             </p>
