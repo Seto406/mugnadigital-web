@@ -1,5 +1,6 @@
 import React from 'react';
 import { Quote } from 'lucide-react';
+import { Reveal } from '../ui/Reveal';
 
 const testimonials = [
   {
@@ -30,29 +31,32 @@ export function Testimonials() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Trusted by Local Innovators
-          </h2>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Here&apos;s what our partners say about building with the Filipino Engine.
-          </p>
+          <Reveal>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Trusted by Local Innovators
+            </h2>
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+                Here&apos;s what our partners say about building with the Filipino Engine.
+            </p>
+          </Reveal>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial) => (
-            <div
-              key={testimonial.author}
-              className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-palay/50 transition-colors relative group flex flex-col"
-            >
-              <Quote className="w-8 h-8 text-brand-palay mb-6 opacity-50 group-hover:opacity-100 transition-opacity" />
-              <p className="text-slate-300 mb-6 leading-relaxed flex-grow italic">
-                &quot;{testimonial.content}&quot;
-              </p>
-              <div className="mt-auto pt-6 border-t border-white/5">
-                <p className="text-white font-semibold">{testimonial.author}</p>
-                <p className="text-brand-teal text-sm">{testimonial.role}</p>
-              </div>
-            </div>
+          {testimonials.map((testimonial, index) => (
+            <Reveal key={testimonial.author} delay={index * 0.1} className="h-full">
+                <div
+                className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-palay/50 transition-colors relative group flex flex-col h-full"
+                >
+                <Quote className="w-8 h-8 text-brand-palay mb-6 opacity-50 group-hover:opacity-100 transition-opacity" />
+                <p className="text-slate-300 mb-6 leading-relaxed flex-grow italic">
+                    &quot;{testimonial.content}&quot;
+                </p>
+                <div className="mt-auto pt-6 border-t border-white/5">
+                    <p className="text-white font-semibold">{testimonial.author}</p>
+                    <p className="text-brand-teal text-sm">{testimonial.role}</p>
+                </div>
+                </div>
+            </Reveal>
           ))}
         </div>
       </div>
