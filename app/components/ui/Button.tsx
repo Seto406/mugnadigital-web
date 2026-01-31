@@ -28,7 +28,7 @@ export function Button({ variant = 'primary', size = 'md', className = '', href,
 
   if (href) {
     return (
-      <Link href={href} className={classes} {...(props as any)}>
+      <Link href={href} className={classes} {...(props as Omit<React.ComponentProps<typeof Link>, 'href'>)}>
         {children}
       </Link>
     );
