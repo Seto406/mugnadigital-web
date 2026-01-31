@@ -1,6 +1,7 @@
 import React from 'react';
 import { Code2, Smartphone, Palette, Cloud } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
+import FloatingElement from '../ui/FloatingElement';
 
 const services = [
   {
@@ -44,9 +45,11 @@ export function Services() {
               <div
                 className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-palay/50 transition-colors group h-full"
               >
-                <div className="w-12 h-12 rounded-lg bg-brand-palay/10 flex items-center justify-center mb-6 group-hover:bg-brand-palay/20 transition-colors">
-                  <service.icon className="w-6 h-6 text-brand-palay" />
-                </div>
+                <FloatingElement delay={index * 0.2}>
+                  <div className="w-12 h-12 rounded-lg bg-brand-palay/10 flex items-center justify-center mb-6 group-hover:bg-brand-palay/20 transition-colors">
+                    <service.icon className="w-6 h-6 text-brand-palay" />
+                  </div>
+                </FloatingElement>
                 <h3 className="text-xl font-semibold text-white mb-3">
                   {service.title}
                 </h3>

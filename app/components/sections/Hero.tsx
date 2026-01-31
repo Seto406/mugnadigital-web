@@ -4,10 +4,29 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
 import { WeavePattern } from '../ui/WeavePattern';
+import GearAnimation from '../ui/GearAnimation';
 
 export function Hero() {
   return (
     <div className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+      {/* Animated Gears */}
+      <GearAnimation
+        className="-top-20 -left-20 opacity-5"
+        size={300}
+        duration={20}
+      />
+      <GearAnimation
+        className="top-1/4 -right-10 opacity-5"
+        size={200}
+        duration={15}
+        reverse
+      />
+      <GearAnimation
+        className="-bottom-32 left-1/3 opacity-5"
+        size={400}
+        duration={30}
+      />
+
       {/* Background Glow */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
