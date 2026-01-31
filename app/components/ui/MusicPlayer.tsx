@@ -42,16 +42,17 @@ export function MusicPlayer() {
         onClick={togglePlay}
         className={`p-3 rounded-full border transition-all duration-300 shadow-lg flex items-center justify-center
           ${isPlaying
-            ? 'bg-[var(--brand-palay)] text-[var(--foreground)] border-[var(--brand-palay)]'
-            : 'bg-[var(--brand-void-static)]/50 text-[var(--brand-mist-static)] border-white/10 hover:bg-[var(--brand-void-static)] hover:text-white'
+            ? 'bg-[var(--brand-palay)] text-[var(--brand-void-static)] border-[var(--brand-palay)]'
+            : 'bg-[var(--background)] text-[var(--foreground)] border-[var(--foreground)]/20 hover:border-[var(--brand-palay)]'
           }
         `}
+        title={isPlaying ? "Mute Background Music" : "Play Background Music"}
         aria-label={isPlaying ? "Turn off music" : "Turn on music"}
       >
         {isPlaying ? (
-          <Volume2 className="w-6 h-6 animate-pulse" />
+          <Volume2 className="w-6 h-6" />
         ) : (
-          <VolumeX className="w-6 h-6" />
+          <VolumeX className="w-6 h-6 opacity-70" />
         )}
       </button>
     </div>

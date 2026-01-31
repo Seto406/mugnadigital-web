@@ -28,17 +28,17 @@ const projects = [
 
 export function Work() {
   return (
-    <section id="work" className="py-24 bg-brand-void relative overflow-hidden">
+    <section id="work" className="py-24 bg-background relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Selected Works</h2>
-            <p className="text-slate-400 max-w-xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Selected Works</h2>
+            <p className="text-slate-600 dark:text-slate-400 max-w-xl">
               A showcase of our digital craftsmanship. We build solutions that matter.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
-            <button className="text-brand-palay hover:text-white flex items-center gap-2 transition-colors font-medium">
+            <button className="text-brand-palay hover:text-foreground flex items-center gap-2 transition-colors font-medium">
                 View All Projects <ArrowUpRight className="w-4 h-4" />
             </button>
           </Reveal>
