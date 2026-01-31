@@ -11,7 +11,7 @@ import ParticlesBackground from './components/ui/ParticlesBackground';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-brand-void selection:bg-brand-palay selection:text-brand-void">
+    <main className="min-h-screen bg-[var(--background)] selection:bg-[var(--brand-palay)] selection:text-[var(--brand-void-static)] transition-colors duration-300">
       <ParticlesBackground />
       <Navbar />
       <Hero />
