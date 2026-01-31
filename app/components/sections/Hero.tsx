@@ -55,7 +55,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6"
+          className="text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-6"
         >
           The Filipino Engine <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-palay to-brand-teal">
@@ -67,7 +67,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           Bridging the gap between imagination (&quot;Mugna&quot;) and execution.
           We build high-performance digital solutions with Filipino craftsmanship and futuristic vision.

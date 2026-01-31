@@ -1,0 +1,30 @@
+
+> mugnadigital@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+
+✓ Starting...
+✓ Ready in 1091ms
+○ Compiling / ...
+ GET / 200 in 7.0s (compile: 5.8s, render: 1227ms)
+○ Compiling /_error ...
+ GET /music/background.mp3 416 in 4.3s (compile: 4.2s, render: 52ms)
+✓ Compiled in 4.3s
+✓ Compiled in 271ms
+✓ Compiled in 395ms
+✓ Compiled in 145ms
+✓ Compiled in 130ms
+✓ Compiled in 97ms
+✓ Compiled in 127ms
+✓ Compiled in 30ms
+ GET / 200 in 3.9s (compile: 1982ms, render: 1928ms)
+ GET /music/background.mp3 416 in 77ms (compile: 34ms, render: 43ms)
+ GET / 200 in 274ms (compile: 7ms, render: 267ms)
+ GET /music/background.mp3 416 in 26ms (compile: 10ms, render: 16ms)
+ GET / 200 in 5.0s (compile: 3.1s, render: 1892ms)
+ GET /music/background.mp3 416 in 62ms (compile: 36ms, render: 26ms)
+ GET / 200 in 1321ms (compile: 210ms, render: 1112ms)
+ GET /music/background.mp3 416 in 103ms (compile: 45ms, render: 58ms)

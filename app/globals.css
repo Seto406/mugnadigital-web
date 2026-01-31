@@ -1,8 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core Colors */
+  --brand-void-static: #0f172a;
+  --brand-mist-static: #f8fafc;
+
+  /* Theme: Light Mode Default */
+  --background: var(--brand-mist-static);
+  --foreground: var(--brand-void-static);
+
+  /* Accents: Default (Normal) */
+  --brand-palay: #10b981;
+  --brand-teal: #14b8a6;
+}
+
+.dark {
+  /* Theme: Dark Mode */
+  --background: var(--brand-void-static);
+  --foreground: var(--brand-mist-static);
+}
+
+/* Vision Modes */
+[data-vision="protanopia"] {
+  --brand-palay: #3b82f6;
+  --brand-teal: #0ea5e9;
+}
+
+[data-vision="deuteranopia"] {
+  --brand-palay: #a855f7;
+  --brand-teal: #d946ef;
+}
+
+[data-vision="tritanopia"] {
+  --brand-palay: #ef4444;
+  --brand-teal: #f97316;
 }
 
 @theme inline {
@@ -10,17 +41,11 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
   --color-brand-void: #0f172a;
   --color-brand-mist: #f8fafc;
-  --color-brand-palay: #10b981;
-  --color-brand-teal: #14b8a6;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-brand-palay: var(--brand-palay);
+  --color-brand-teal: var(--brand-teal);
 }
 
 html {
@@ -31,4 +56,5 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

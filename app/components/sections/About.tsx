@@ -3,7 +3,7 @@ import { Target, Zap } from 'lucide-react';
 
 export function About() {
   return (
-    <section id="about" className="py-24 bg-brand-void relative overflow-hidden">
+    <section id="about" className="py-24 bg-background relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-brand-palay/5 to-transparent pointer-events-none" />
 
@@ -13,14 +13,14 @@ export function About() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-teal text-sm font-medium mb-6">
               Who We Are
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
               Digital Craftsmen of the <span className="text-brand-palay">Visayas</span>
             </h2>
-            <p className="text-slate-400 text-lg mb-6 leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-400 text-lg mb-6 leading-relaxed">
               MugnaDigital is more than just a dev shop. We are a collective of innovators, designers, and engineers dedicated to elevating the digital landscape of Negros Oriental and beyond.
             </p>
-            <div className="text-slate-400 text-lg mb-8 leading-relaxed">
-              &quot;Mugna&quot; means <strong className="text-white">to create</strong> in Visayan. It embodies our mission: to bridge the gap between imagination and execution using world-class technology and local ingenuity.
+            <div className="text-slate-600 dark:text-slate-400 text-lg mb-8 leading-relaxed">
+              &quot;Mugna&quot; means <strong className="text-foreground">to create</strong> in Visayan. It embodies our mission: to bridge the gap between imagination and execution using world-class technology and local ingenuity.
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -29,7 +29,7 @@ export function About() {
                   <Target className="w-5 h-5 text-brand-palay" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-1">Our Mission</h4>
+                  <h4 className="text-foreground font-semibold mb-1">Our Mission</h4>
                   <p className="text-slate-500 text-sm">To empower local businesses with global-standard digital solutions.</p>
                 </div>
               </div>
@@ -38,7 +38,7 @@ export function About() {
                   <Zap className="w-5 h-5 text-brand-teal" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-1">Our Speed</h4>
+                  <h4 className="text-foreground font-semibold mb-1">Our Speed</h4>
                   <p className="text-slate-500 text-sm">Accelerated by AI agents, refined by human experts.</p>
                 </div>
               </div>
@@ -46,9 +46,9 @@ export function About() {
           </div>
 
           <div className="relative">
-             <div className="aspect-square rounded-2xl overflow-hidden bg-slate-800 border border-white/10 relative z-10">
+             <div className="aspect-square rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 border border-black/10 dark:border-white/10 relative z-10">
                 {/* Placeholder for Team Image */}
-                <div className="absolute inset-0 flex items-center justify-center text-slate-600 font-mono text-center px-4">
+                <div className="absolute inset-0 flex items-center justify-center text-slate-500 dark:text-slate-600 font-mono text-center px-4">
                    [Team Photo / Collaborative Workspace]
                 </div>
              </div>
