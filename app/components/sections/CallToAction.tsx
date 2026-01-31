@@ -5,7 +5,7 @@ export function CallToAction() {
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-slate-200 dark:via-slate-900 to-background border-t border-black/5 dark:border-white/5" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-slate-100 dark:via-slate-900 to-background border-t border-black/5 dark:border-white/5" />
 
       {/* Glow Effect */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl bg-brand-palay/5 blur-3xl rounded-full pointer-events-none" />

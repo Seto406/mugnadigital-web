@@ -19,7 +19,7 @@ export function Contact() {
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-black/5 dark:bg-white/5 flex items-center justify-center shrink-0 border border-black/10 dark:border-white/10">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-white/5 flex items-center justify-center shrink-0 border border-black/10 dark:border-white/10">
                   <Mail className="w-6 h-6 text-brand-palay" />
                 </div>
                 <div>
@@ -31,7 +31,7 @@ export function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-black/5 dark:bg-white/5 flex items-center justify-center shrink-0 border border-black/10 dark:border-white/10">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-white/5 flex items-center justify-center shrink-0 border border-black/10 dark:border-white/10">
                   <Phone className="w-6 h-6 text-brand-palay" />
                 </div>
                 <div>
@@ -43,7 +43,7 @@ export function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-black/5 dark:bg-white/5 flex items-center justify-center shrink-0 border border-black/10 dark:border-white/10">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-white/5 flex items-center justify-center shrink-0 border border-black/10 dark:border-white/10">
                   <MapPin className="w-6 h-6 text-brand-palay" />
                 </div>
                 <div>
@@ -58,7 +58,7 @@ export function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl p-8">
+          <div className="bg-white dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl p-8">
             <form className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
