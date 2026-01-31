@@ -24,8 +24,8 @@ export function Testimonials() {
     <section id="testimonials" className="py-24 bg-brand-void relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-         <div className="absolute top-1/4 right-0 w-[300px] h-[300px] bg-brand-teal/10 blur-[100px] rounded-full" />
-         <div className="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-brand-palay/10 blur-[100px] rounded-full" />
+         <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-[radial-gradient(closest-side,var(--color-brand-teal),transparent)] opacity-20 rounded-full" />
+         <div className="absolute bottom-1/4 -left-20 w-[500px] h-[500px] bg-[radial-gradient(closest-side,var(--color-brand-palay),transparent)] opacity-20 rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
