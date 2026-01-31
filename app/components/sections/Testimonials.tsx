@@ -34,7 +34,7 @@ export function Testimonials() {
             Trusted by Local Innovators
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Here's what our partners say about building with the Filipino Engine.
+            Here&apos;s what our partners say about building with the Filipino Engine.
           </p>
         </div>
 
