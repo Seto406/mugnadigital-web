@@ -24,20 +24,19 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const storedTheme = localStorage.getItem('themeMode') as ThemeMode;
     const storedVision = localStorage.getItem('visionMode') as VisionMode;
 
-    if (storedTheme) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setThemeMode(storedTheme);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setThemeMode('dark');
+    if (storedTheme && storedTheme !== 'dark') {
+      setThemeMode(storedTheme);
+    } else if (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      // already dark by default, but ensure consistency if logic changes
+      if (themeMode !== 'dark') setThemeMode('dark');
     }
 
-    if (storedVision) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setVisionMode(storedVision);
+    if (storedVision && storedVision !== 'normal') {
+      setVisionMode(storedVision);
     }
 
     setMounted(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

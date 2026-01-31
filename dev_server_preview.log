@@ -26,3 +26,5 @@
  GET /music/background.mp3 416 in 26ms (compile: 10ms, render: 16ms)
  GET / 200 in 5.0s (compile: 3.1s, render: 1892ms)
  GET /music/background.mp3 416 in 62ms (compile: 36ms, render: 26ms)
+ GET / 200 in 1321ms (compile: 210ms, render: 1112ms)
+ GET /music/background.mp3 416 in 103ms (compile: 45ms, render: 58ms)
