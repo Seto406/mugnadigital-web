@@ -7,10 +7,12 @@ import { Testimonials } from './components/sections/Testimonials';
 import { CallToAction } from './components/sections/CallToAction';
 import { Contact } from './components/sections/Contact';
 import { Footer } from './components/layout/Footer';
+import ParticlesBackground from './components/ui/ParticlesBackground';
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-brand-void selection:bg-brand-palay selection:text-brand-void">
+      <ParticlesBackground />
       <Navbar />
       <Hero />
       <Services />
