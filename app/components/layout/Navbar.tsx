@@ -5,16 +5,16 @@ import Link from 'next/link';
 import { Button } from '../ui/Button';
 import { Menu, X } from 'lucide-react';
 
+const navLinks = [
+  { name: 'Home', href: '#' },
+  { name: 'Services', href: '#services' },
+  { name: 'Work', href: '#work' },
+  { name: 'About', href: '#about' },
+  { name: 'Contact', href: '#contact' },
+];
+
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Services', href: '#services' },
-    { name: 'Work', href: '#work' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
-  ];
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-brand-void/80 backdrop-blur-md border-b border-white/5">
