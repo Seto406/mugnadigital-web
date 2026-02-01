@@ -30,6 +30,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
+          <a
+            href="#main-content"
+            className="fixed top-4 left-4 z-[100] -translate-y-[200%] focus:translate-y-0 px-6 py-3 bg-[var(--background)] text-[var(--brand-palay)] border-2 border-[var(--brand-palay)] rounded-lg shadow-xl font-bold transition-transform duration-300"
+          >
+            Skip to content
+          </a>
           <MusicPlayer />
           {children}
         </ThemeProvider>
