@@ -2,7 +2,7 @@ import React from 'react';
 
 export function WeavePattern({ className = '' }: { className?: string }) {
   return (
-    <div className={`absolute inset-0 opacity-30 pointer-events-none ${className}`}>
+    <div className={`absolute inset-0 opacity-30 pointer-events-none ${className}`} aria-hidden="true">
       <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern id="weave" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">

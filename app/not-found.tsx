@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Button } from './components/ui/Button';
 import ParticlesBackground from './components/ui/ParticlesBackground';
 
@@ -18,8 +17,8 @@ export default function NotFound() {
           </h2>
 
           <p className="text-lg text-[var(--foreground)]/70 max-w-md mx-auto">
-            The page you're looking for has been disconnected from the matrix.
-            Let's guide you back to safety.
+            The page you&apos;re looking for has been disconnected from the matrix.
+            Let&apos;s guide you back to safety.
           </p>
 
           <div className="flex justify-center gap-4">
