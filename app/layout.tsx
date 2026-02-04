@@ -5,6 +5,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { MusicPlayer } from "./components/ui/MusicPlayer";
 import { ScrollProgress } from "./components/ui/ScrollProgress";
 import { BackToTop } from "./components/ui/BackToTop";
+import { BannerAd } from "./components/ui/BannerAd";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -66,6 +67,7 @@ export default function RootLayout({
             Skip to content
           </a>
           <MusicPlayer />
+          <BannerAd />
           {children}
         </ThemeProvider>
       </body>
