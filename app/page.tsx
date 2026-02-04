@@ -11,17 +11,19 @@ import ParticlesBackground from './components/ui/ParticlesBackground';
 
 export default function Home() {
   return (
-    <main id="main-content" className="min-h-screen bg-[var(--background)] selection:bg-[var(--brand-palay)] selection:text-[var(--brand-void-static)] transition-colors duration-300">
+    <>
       <ParticlesBackground />
       <Navbar />
-      <Hero />
-      <Services />
-      <Work />
-      <About />
-      <Testimonials />
-      <CallToAction />
-      <Contact />
+      <main id="main-content" className="min-h-screen bg-[var(--background)] selection:bg-[var(--brand-palay)] selection:text-[var(--brand-void-static)] transition-colors duration-300">
+        <Hero />
+        <Services />
+        <Work />
+        <About />
+        <Testimonials />
+        <CallToAction />
+        <Contact />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }
