@@ -5,3 +5,7 @@
 ## 2026-02-02 - Accessible Required Indicators
 **Learning:** Visual indicators for required fields (like asterisks) should be hidden from screen readers using `aria-hidden="true"` when the semantic `required` attribute is already present on the input, to avoid redundant announcements.
 **Action:** When adding visual decorations for form state, ensure they are hidden from assistive technology if the input already conveys the state semantically.
+
+## 2026-02-03 - Inert Hero Buttons
+**Learning:** Component library buttons often default to inert `<button>` tags if no `href` or `onClick` is provided, leaving critical CTA elements non-functional despite visual prominence.
+**Action:** Systematically check all "Call to Action" buttons during UX audits to ensure they have valid `href` attributes or event handlers.
