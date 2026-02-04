@@ -79,10 +79,20 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <Button variant="primary" className="text-lg px-8">
+          <Button
+            variant="primary"
+            className="text-lg px-8"
+            href="#contact"
+            aria-label="Start your project - Jump to contact form"
+          >
             Start Your Project
           </Button>
-          <Button variant="secondary" className="text-lg px-8">
+          <Button
+            variant="secondary"
+            className="text-lg px-8"
+            href="#work"
+            aria-label="View our work - Jump to projects showcase"
+          >
             View Our Work
           </Button>
         </motion.div>
