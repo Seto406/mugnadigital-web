@@ -3,11 +3,13 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
 
 export interface Project {
   title: string;
   category: string;
   description: string;
+  image: string;
 }
 
 interface ShowroomGalleryProps {
@@ -35,10 +37,13 @@ export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
             >
               {/* Image Placeholder */}
               <div className="aspect-video bg-slate-100 dark:bg-slate-800 relative overflow-hidden group-hover:scale-105 transition-transform duration-500 shrink-0">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                />
                 <div className="absolute inset-0 bg-brand-palay/10 group-hover:bg-brand-palay/0 transition-colors" />
-                <div className="flex items-center justify-center h-full text-slate-400 dark:text-slate-600 font-mono text-sm p-4 text-center">
-                  [Image: {project.title}]
-                </div>
               </div>
 
               <div className="p-6 md:p-8 relative z-10 bg-white dark:bg-slate-900 flex flex-col flex-grow transition-colors">
