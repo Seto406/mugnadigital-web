@@ -49,7 +49,7 @@ export function About() {
           <div className="relative">
              <div className="aspect-square rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 border border-black/10 dark:border-white/10 relative z-10">
                 <Image
-                  src="/images/about-team.svg"
+                  src="/images/about-team.jpg"
                   alt="MugnaDigital Team"
                   fill
                   className="object-cover"
