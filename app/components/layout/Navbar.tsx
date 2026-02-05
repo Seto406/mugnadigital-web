@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '../ui/Button';
 import { Menu, X, Sun, Moon, Eye } from 'lucide-react';
@@ -19,6 +19,21 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVisionOpen, setIsVisionOpen] = useState(false);
   const { themeMode, setThemeMode, visionMode, setVisionMode } = useTheme();
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsVisionOpen(false);
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isVisionOpen || isMobileMenuOpen) {
+      document.addEventListener('keydown', handleEscape);
+    }
+
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isVisionOpen, isMobileMenuOpen]);
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-[var(--background)]/80 backdrop-blur-md border-b border-[var(--foreground)]/5 transition-colors duration-300">
