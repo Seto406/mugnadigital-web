@@ -92,7 +92,7 @@ export function Navbar() {
 
             <div className="w-px h-6 bg-[var(--foreground)]/10 mx-2" />
 
-            <Button variant="primary" size="sm" href="#contact">
+            <Button variant="primary" size="sm" href="#contact" className="!leading-none !py-[9px]">
               Tara, Let&apos;s Build
             </Button>
           </div>
