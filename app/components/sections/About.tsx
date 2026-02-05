@@ -1,5 +1,6 @@
 import React from 'react';
 import { Target, Zap } from 'lucide-react';
+import Image from 'next/image';
 
 export function About() {
   return (
@@ -47,10 +48,12 @@ export function About() {
 
           <div className="relative">
              <div className="aspect-square rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 border border-black/10 dark:border-white/10 relative z-10">
-                {/* Placeholder for Team Image */}
-                <div className="absolute inset-0 flex items-center justify-center text-slate-500 dark:text-slate-600 font-mono text-center px-4">
-                   [Team Photo / Collaborative Workspace]
-                </div>
+                <Image
+                  src="/images/about-team.svg"
+                  alt="MugnaDigital Team"
+                  fill
+                  className="object-cover"
+                />
              </div>
              {/* Decorative Elements */}
              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-brand-palay/20 rounded-full blur-xl z-0" />
