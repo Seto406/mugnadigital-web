@@ -9,3 +9,7 @@
 ## 2026-02-03 - Inert Hero Buttons
 **Learning:** Component library buttons often default to inert `<button>` tags if no `href` or `onClick` is provided, leaving critical CTA elements non-functional despite visual prominence.
 **Action:** Systematically check all "Call to Action" buttons during UX audits to ensure they have valid `href` attributes or event handlers.
+
+## 2026-02-04 - Escape Key Hatch
+**Learning:** Custom UI components like dropdowns and mobile menus often trap keyboard users if they don't explicitly listen for the "Escape" key to close, forcing users to tab through the entire DOM to exit.
+**Action:** Always attach a `keydown` listener for 'Escape' on any modal, dropdown, or overlay component to provide an immediate exit route.
