@@ -1,8 +1,25 @@
-import React from 'react';
-import { Mail, MapPin, Phone, ChevronDown } from 'lucide-react';
+'use client';
+
+import React, { useState } from 'react';
+import { Mail, MapPin, Phone, ChevronDown, CheckCircle, Loader2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
 
 export function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate network request
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+  };
+
   return (
     <section id="contact" className="py-24 bg-background relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,8 +75,32 @@ export function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl p-8">
-            <form className="space-y-6">
+          <div className="bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl p-8 relative overflow-hidden min-h-[500px]">
+            {isSubmitted && (
+               <motion.div
+                 initial={{ opacity: 0, scale: 0.9 }}
+                 animate={{ opacity: 1, scale: 1 }}
+                 className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-white dark:bg-slate-900 z-10"
+                 role="alert"
+                 aria-live="polite"
+               >
+                 <div className="w-16 h-16 bg-brand-palay/10 rounded-full flex items-center justify-center mb-6">
+                   <CheckCircle className="w-8 h-8 text-brand-palay" />
+                 </div>
+                 <h3 className="text-2xl font-bold text-foreground mb-2">Message Sent!</h3>
+                 <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-xs">
+                   Thanks for reaching out. We&apos;ll get back to you shortly to discuss your project.
+                 </p>
+                 <Button onClick={() => setIsSubmitted(false)} variant="secondary">
+                   Send Another Message
+                 </Button>
+               </motion.div>
+            )}
+
+            <form
+              onSubmit={handleSubmit}
+              className={`space-y-6 transition-all duration-300 ${isSubmitted ? 'opacity-0 invisible' : 'opacity-100'}`}
+            >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium text-slate-700 dark:text-slate-300">
@@ -120,8 +161,15 @@ export function Contact() {
                 />
               </div>
 
-              <Button type="submit" variant="primary" className="w-full justify-center text-lg">
-                Send Message
+              <Button type="submit" variant="primary" className="w-full justify-center text-lg gap-2" disabled={isSubmitting}>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  'Send Message'
+                )}
               </Button>
             </form>
           </div>
