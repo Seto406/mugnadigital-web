@@ -13,3 +13,11 @@
 ## 2026-02-04 - Escape Key Hatch
 **Learning:** Custom UI components like dropdowns and mobile menus often trap keyboard users if they don't explicitly listen for the "Escape" key to close, forcing users to tab through the entire DOM to exit.
 **Action:** Always attach a `keydown` listener for 'Escape' on any modal, dropdown, or overlay component to provide an immediate exit route.
+
+## 2026-05-20 - Tailwind v4 Dark Mode Mismatch
+**Learning:** Tailwind v4 defaults to system-preference for `dark:` variants. If the app manually toggles a `.dark` class, utility classes won't trigger even if CSS variables do, leading to invisible text or broken backgrounds.
+**Action:** Explicitly define `@custom-variant dark (&:where(.dark, .dark *));` in the global CSS when using class-based dark mode in Tailwind v4.
+
+## 2026-05-20 - Inert Forms
+**Learning:** Portfolio contact forms without submission logic create a broken experience (reload or no-op). Even if backend is absent, simulated success states are essential for user feedback.
+**Action:** Implement client-side state handling (loading/success) for all public-facing forms to provide immediate, delightful feedback.
