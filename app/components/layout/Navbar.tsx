@@ -77,6 +77,9 @@ export function Navbar() {
                 className={`p-2 transition-colors rounded-full hover:bg-[var(--foreground)]/5 ${visionMode !== 'normal' ? 'text-[var(--brand-palay)]' : 'text-[var(--foreground)] hover:text-[var(--brand-palay)]'}`}
                 title="Vision Accessibility"
                 aria-label="Vision Settings"
+                aria-haspopup="true"
+                aria-expanded={isVisionOpen}
+                aria-controls="vision-menu"
               >
                 <Eye size={20} />
               </button>
@@ -84,11 +87,16 @@ export function Navbar() {
               {isVisionOpen && (
                 <>
                   <div className="fixed inset-0 z-40" onClick={() => setIsVisionOpen(false)} />
-                  <div className="absolute right-0 mt-2 w-48 bg-[var(--background)] border border-[var(--foreground)]/10 rounded-xl shadow-xl p-2 z-50 animate-in fade-in zoom-in-95 duration-200">
-                    <div className="text-xs font-bold text-[var(--foreground)]/50 mb-2 px-2 uppercase tracking-wider">Vision Mode</div>
+                  <div
+                    id="vision-menu"
+                    role="menu"
+                    className="absolute right-0 mt-2 w-48 bg-[var(--background)] border border-[var(--foreground)]/10 rounded-xl shadow-xl p-2 z-50 animate-in fade-in zoom-in-95 duration-200"
+                  >
+                    <div className="text-xs font-bold text-[var(--foreground)]/50 mb-2 px-2 uppercase tracking-wider" aria-hidden="true">Vision Mode</div>
                     {(['normal', 'protanopia', 'deuteranopia', 'tritanopia'] as VisionMode[]).map((mode) => (
                       <button
                         key={mode}
+                        role="menuitem"
                         onClick={() => { setVisionMode(mode); setIsVisionOpen(false); }}
                         className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors flex items-center justify-between ${
                           visionMode === mode
