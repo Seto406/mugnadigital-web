@@ -21,3 +21,7 @@
 ## 2026-05-20 - Inert Forms
 **Learning:** Portfolio contact forms without submission logic create a broken experience (reload or no-op). Even if backend is absent, simulated success states are essential for user feedback.
 **Action:** Implement client-side state handling (loading/success) for all public-facing forms to provide immediate, delightful feedback.
+
+## 2026-02-07 - Accessible Custom Dropdowns
+**Learning:** Custom interactive elements like the Vision Mode dropdown are invisible to screen readers without explicit ARIA states (`aria-expanded`, `aria-haspopup`) and roles (`menu`, `menuitem`), making them appear as broken buttons.
+**Action:** Systematically audit all `useState`-driven toggles to ensure they communicate their open/closed state via ARIA attributes.
