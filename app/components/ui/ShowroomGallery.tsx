@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useRef } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowUpRight, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 
 export interface Project {
@@ -18,13 +18,42 @@ interface ShowroomGalleryProps {
 
 export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [showHint, setShowHint] = useState(false);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const checkScroll = () => {
+      // Only show hint if content overflows and we haven't scrolled much
+      if (container.scrollWidth > container.clientWidth && container.scrollLeft < 20) {
+        setShowHint(true);
+      } else {
+        setShowHint(false);
+      }
+    };
+
+    // Initial check
+    checkScroll();
+
+    // Listeners
+    container.addEventListener('scroll', checkScroll);
+    window.addEventListener('resize', checkScroll);
+
+    return () => {
+      container.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+    };
+  }, []);
 
   return (
-    <div className="relative">
+    <div className="relative group/gallery">
       <div
         ref={containerRef}
-        className="flex overflow-x-auto snap-x snap-mandatory gap-6 md:gap-8 pb-12 -mx-4 px-4 md:-mx-0 md:px-0 hide-scrollbar"
+        className="flex overflow-x-auto snap-x snap-mandatory gap-6 md:gap-8 pb-12 -mx-4 px-4 md:-mx-0 md:px-0 hide-scrollbar focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-palay)] rounded-xl"
         style={{ scrollBehavior: 'smooth' }}
+        tabIndex={0}
+        aria-label="Project Gallery"
       >
         {projects.map((project, index) => (
           <div key={index} className="flex-none w-[85vw] md:w-[600px] snap-center first:pl-0">
@@ -64,7 +93,20 @@ export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
         ))}
       </div>
 
-      {/* Scroll Hint / Progress could go here, but keeping it clean for now */}
+      <AnimatePresence>
+        {showHint && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute right-0 top-0 bottom-12 w-32 bg-gradient-to-l from-[var(--background)] to-transparent pointer-events-none flex items-center justify-end pr-4 md:pr-0 z-20"
+            aria-hidden="true"
+          >
+            <ChevronRight className="w-10 h-10 text-[var(--brand-palay)] animate-pulse drop-shadow-lg" />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <style jsx global>{`
         .hide-scrollbar::-webkit-scrollbar {
           display: none;

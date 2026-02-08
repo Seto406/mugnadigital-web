@@ -25,3 +25,7 @@
 ## 2026-02-07 - Accessible Custom Dropdowns
 **Learning:** Custom interactive elements like the Vision Mode dropdown are invisible to screen readers without explicit ARIA states (`aria-expanded`, `aria-haspopup`) and roles (`menu`, `menuitem`), making them appear as broken buttons.
 **Action:** Systematically audit all `useState`-driven toggles to ensure they communicate their open/closed state via ARIA attributes.
+
+## 2026-05-24 - Hidden Horizontal Scroll
+**Learning:** Horizontal scroll containers (like galleries) often hide scrollbars for aesthetics, making them invisible to mouse users and inaccessible to keyboard users if the container isn't focusable.
+**Action:** Always add a visual "scroll hint" (like a fading edge or arrow) and ensure the container has `tabIndex={0}` with an `aria-label` for keyboard navigation.
