@@ -19,12 +19,13 @@ def generate():
         with open(filename, "r") as f:
             content = f.read()
 
+        base, ext = os.path.splitext(filename)
+
         for name, hex_code in COLORS.items():
             # Replace the default slate color with the variant color
             new_content = content.replace("#0F172A", hex_code)
 
             # Construct new filename, e.g., icon-gold.svg
-            base, ext = os.path.splitext(filename)
             new_filename = f"{base}-{name}{ext}"
 
             with open(new_filename, "w") as f:
