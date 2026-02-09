@@ -70,6 +70,7 @@ export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
                   src={project.image}
                   alt={project.title}
                   fill
+                  sizes="(max-width: 768px) 85vw, 600px"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-brand-palay/10 group-hover:bg-brand-palay/0 transition-colors" />

@@ -1,5 +1,5 @@
 
-> mugnadigital@0.1.0 dev
+> mugnadigital@0.1.0 dev /app
 > next dev
 
 ▲ Next.js 16.1.6 (Turbopack)
@@ -7,6 +7,5 @@
 - Network:       http://192.168.0.2:3000
 
 ✓ Starting...
-✓ Ready in 1093ms
-○ Compiling / ...
- GET / 200 in 5.8s (compile: 5.1s, render: 731ms)
+✓ Ready in 2.4s
+ GET / 200 in 2.3s (compile: 1265ms, render: 1050ms)
