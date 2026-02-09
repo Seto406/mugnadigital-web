@@ -7,7 +7,7 @@ import Script from 'next/script';
 import { Button } from './Button';
 
 // Configuration for AdSense
-// TODO: Replace these with actual AdSense values when available
+// AdSense configuration is loaded from environment variables
 const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || "";
 const ADSENSE_SLOT_ID = process.env.NEXT_PUBLIC_ADSENSE_SLOT_ID || "";
 
