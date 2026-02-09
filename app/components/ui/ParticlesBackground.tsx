@@ -72,7 +72,7 @@ export default function ParticlesBackground() {
 
     const drawParticle = (p: Particle) => {
       if (!ctx) return;
-      ctx.fillStyle = `rgba(${brandColorRgb}, ${p.opacity})`;
+      ctx.globalAlpha = p.opacity;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
       ctx.fill();
@@ -90,10 +90,16 @@ export default function ParticlesBackground() {
       if (!ctx || !canvas) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      // Set base color once per frame to avoid string interpolation per particle
+      ctx.fillStyle = `rgb(${brandColorRgb})`;
+
       particles.forEach((particle) => {
         updateParticle(particle);
         drawParticle(particle);
       });
+
+      // Reset alpha for safety
+      ctx.globalAlpha = 1.0;
 
       animationFrameId = requestAnimationFrame(animate);
     };
