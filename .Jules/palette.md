@@ -29,3 +29,7 @@
 ## 2026-05-24 - Hidden Horizontal Scroll
 **Learning:** Horizontal scroll containers (like galleries) often hide scrollbars for aesthetics, making them invisible to mouse users and inaccessible to keyboard users if the container isn't focusable.
 **Action:** Always add a visual "scroll hint" (like a fading edge or arrow) and ensure the container has `tabIndex={0}` with an `aria-label` for keyboard navigation.
+
+## 2026-05-26 - Mobile Menu Toggle State
+**Learning:** Hamburger menus often rely on visual icon changes (X vs Menu) to indicate state, leaving screen reader users unaware if the menu is open or closed without explicit ARIA attributes.
+**Action:** Always add `aria-expanded` and `aria-controls` to mobile menu toggle buttons, and ensure the toggle button's label reflects the action (e.g., "Toggle main menu" or dynamic "Open/Close").

@@ -40,7 +40,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center" aria-label="Home">
               <Logo className="h-10 w-auto text-[var(--foreground)]" />
             </Link>
           </div>
@@ -124,8 +124,11 @@ export function Navbar() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-[var(--foreground)] hover:bg-[var(--foreground)]/10 focus:outline-none"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
+              aria-label="Toggle main menu"
             >
-              <span className="sr-only">Open main menu</span>
+              <span className="sr-only">Toggle main menu</span>
               {isMobileMenuOpen ? (
                 <X className="block h-6 w-6" aria-hidden="true" />
               ) : (
@@ -138,7 +141,10 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[var(--background)] border-b border-[var(--foreground)]/5 h-screen overflow-y-auto pb-20">
+        <div
+          id="mobile-menu"
+          className="md:hidden bg-[var(--background)] border-b border-[var(--foreground)]/5 h-screen overflow-y-auto pb-20"
+        >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navLinks.map((link) => (
               <Link
