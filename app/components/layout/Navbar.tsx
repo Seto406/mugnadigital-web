@@ -65,7 +65,7 @@ export function Navbar() {
               onClick={() => setThemeMode(themeMode === 'light' ? 'dark' : 'light')}
               className="p-2 text-[var(--foreground)] hover:text-[var(--brand-palay)] transition-colors rounded-full hover:bg-[var(--foreground)]/5"
               title={themeMode === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
-              aria-label="Toggle Dark Mode"
+              aria-label={themeMode === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
             >
               {themeMode === 'light' ? <Moon size={20} /> : <Sun size={20} />}
             </button>
@@ -97,6 +97,7 @@ export function Navbar() {
                       <button
                         key={mode}
                         role="menuitem"
+                        aria-current={visionMode === mode ? 'true' : undefined}
                         onClick={() => { setVisionMode(mode); setIsVisionOpen(false); }}
                         className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors flex items-center justify-between ${
                           visionMode === mode
@@ -167,12 +168,16 @@ export function Navbar() {
                      <button
                         onClick={() => setThemeMode('light')}
                         className={`p-2 rounded-md transition-all ${themeMode === 'light' ? 'bg-[var(--background)] text-[var(--brand-palay)] shadow-sm' : 'text-[var(--foreground)]/60'}`}
+                        aria-label="Switch to light mode"
+                        aria-pressed={themeMode === 'light'}
                      >
                        <Sun size={20} />
                      </button>
                      <button
                         onClick={() => setThemeMode('dark')}
                         className={`p-2 rounded-md transition-all ${themeMode === 'dark' ? 'bg-[var(--background)] text-[var(--brand-palay)] shadow-sm' : 'text-[var(--foreground)]/60'}`}
+                        aria-label="Switch to dark mode"
+                        aria-pressed={themeMode === 'dark'}
                      >
                        <Moon size={20} />
                      </button>
@@ -191,6 +196,7 @@ export function Navbar() {
                               ? 'border-[var(--brand-palay)] text-[var(--brand-palay)] bg-[var(--brand-palay)]/5 font-bold'
                               : 'border-[var(--foreground)]/10 text-[var(--foreground)]/70'
                           }`}
+                          aria-pressed={visionMode === mode}
                         >
                           {mode === 'normal' ? 'Standard' : mode.charAt(0).toUpperCase() + mode.slice(1)}
                         </button>

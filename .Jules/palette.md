@@ -33,3 +33,7 @@
 ## 2026-05-26 - Mobile Menu Toggle State
 **Learning:** Hamburger menus often rely on visual icon changes (X vs Menu) to indicate state, leaving screen reader users unaware if the menu is open or closed without explicit ARIA attributes.
 **Action:** Always add `aria-expanded` and `aria-controls` to mobile menu toggle buttons, and ensure the toggle button's label reflects the action (e.g., "Toggle main menu" or dynamic "Open/Close").
+
+## 2026-05-27 - Icon-Only Menu Toggles
+**Learning:** Secondary actions in mobile menus (like Theme/Vision toggles) are often implemented as icon-only buttons without labels, making them completely inaccessible to screen readers who rely on text alternatives.
+**Action:** Always provide `aria-label` for icon-only buttons and use `aria-pressed` or `aria-current` to communicate the active state of toggle buttons.
