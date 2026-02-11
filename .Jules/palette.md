@@ -37,3 +37,7 @@
 ## 2026-05-27 - Icon-Only Menu Toggles
 **Learning:** Secondary actions in mobile menus (like Theme/Vision toggles) are often implemented as icon-only buttons without labels, making them completely inaccessible to screen readers who rely on text alternatives.
 **Action:** Always provide `aria-label` for icon-only buttons and use `aria-pressed` or `aria-current` to communicate the active state of toggle buttons.
+
+## 2026-05-30 - Disabled Links Trap
+**Learning:** Polymorphic buttons that render as <a> tags (Next.js Link) cannot be disabled via the disabled attribute, leading to a mismatch where a "disabled" button is still interactive.
+**Action:** When a polymorphic button is in a disabled state but has an href, render it as a disabled <button> instead of a link to enforce the disabled state semantically and functionally.
