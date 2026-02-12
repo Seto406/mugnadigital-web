@@ -27,6 +27,15 @@ export default function ParticlesBackground() {
     let animationFrameId: number;
     let brandColorRgb = '16, 185, 129'; // Default RGB
 
+    // Handle Reduced Motion
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let prefersReducedMotion = mediaQuery.matches;
+
+    const handleMotionChange = (e: MediaQueryListEvent) => {
+      prefersReducedMotion = e.matches;
+    };
+    mediaQuery.addEventListener('change', handleMotionChange);
+
     const updateBrandColor = () => {
         const style = getComputedStyle(document.documentElement);
         let color = style.getPropertyValue('--color-brand-palay').trim() || style.getPropertyValue('--brand-palay').trim();
@@ -91,7 +100,9 @@ export default function ParticlesBackground() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((particle) => {
-        updateParticle(particle);
+        if (!prefersReducedMotion) {
+          updateParticle(particle);
+        }
         drawParticle(particle);
       });
 
@@ -112,6 +123,7 @@ export default function ParticlesBackground() {
     return () => {
       clearTimeout(timeoutId);
       window.removeEventListener('resize', resizeCanvas);
+      mediaQuery.removeEventListener('change', handleMotionChange);
       cancelAnimationFrame(animationFrameId);
     };
   }, [themeMode, visionMode]);
