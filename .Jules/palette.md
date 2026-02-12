@@ -41,3 +41,7 @@
 ## 2026-05-30 - Disabled Links Trap
 **Learning:** Polymorphic buttons that render as <a> tags (Next.js Link) cannot be disabled via the disabled attribute, leading to a mismatch where a "disabled" button is still interactive.
 **Action:** When a polymorphic button is in a disabled state but has an href, render it as a disabled <button> instead of a link to enforce the disabled state semantically and functionally.
+
+## 2026-06-01 - Reduced Motion for Canvas
+**Learning:** Canvas-based animations (`requestAnimationFrame`) completely bypass CSS `prefers-reduced-motion` media queries. Accessibility requires manual checking of `window.matchMedia` within the JS animation loop.
+**Action:** Always wrap canvas update logic (position changes) in a conditional check for `!mediaQuery.matches` while keeping the draw loop active to handle resizing/rendering static states.
