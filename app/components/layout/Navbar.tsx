@@ -18,7 +18,39 @@ const navLinks = [
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVisionOpen, setIsVisionOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
   const { themeMode, setThemeMode, visionMode, setVisionMode } = useTheme();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 120; // Offset for navbar
+
+      if (scrollPosition < 200) {
+        setActiveSection('');
+        return;
+      }
+
+      // Find the current section
+      const sections = navLinks
+        .map(link => link.href.substring(1))
+        .filter(id => id !== '');
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -34,6 +66,11 @@ export function Navbar() {
 
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isVisionOpen, isMobileMenuOpen]);
+
+  const isActive = (href: string) => {
+    const sectionId = href.substring(1);
+    return (href === '#' && activeSection === '') || activeSection === sectionId;
+  };
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-[var(--background)]/80 backdrop-blur-md border-b border-[var(--foreground)]/5 transition-colors duration-300">
@@ -51,7 +88,12 @@ export function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-[var(--foreground)]/80 hover:text-[var(--brand-palay)] px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    isActive(link.href)
+                      ? 'text-[var(--brand-palay)]'
+                      : 'text-[var(--foreground)]/80 hover:text-[var(--brand-palay)]'
+                  }`}
+                  aria-current={isActive(link.href) ? 'page' : undefined}
                 >
                   {link.name}
                 </Link>
@@ -89,14 +131,12 @@ export function Navbar() {
                   <div className="fixed inset-0 z-40" onClick={() => setIsVisionOpen(false)} />
                   <div
                     id="vision-menu"
-                    role="menu"
                     className="absolute right-0 mt-2 w-48 bg-[var(--background)] border border-[var(--foreground)]/10 rounded-xl shadow-xl p-2 z-50 animate-in fade-in zoom-in-95 duration-200"
                   >
                     <div className="text-xs font-bold text-[var(--foreground)]/50 mb-2 px-2 uppercase tracking-wider" aria-hidden="true">Vision Mode</div>
                     {(['normal', 'protanopia', 'deuteranopia', 'tritanopia'] as VisionMode[]).map((mode) => (
                       <button
                         key={mode}
-                        role="menuitem"
                         aria-current={visionMode === mode ? 'true' : undefined}
                         onClick={() => { setVisionMode(mode); setIsVisionOpen(false); }}
                         className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors flex items-center justify-between ${

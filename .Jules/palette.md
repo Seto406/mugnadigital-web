@@ -45,3 +45,7 @@
 ## 2026-06-01 - Reduced Motion for Canvas
 **Learning:** Canvas-based animations (`requestAnimationFrame`) completely bypass CSS `prefers-reduced-motion` media queries. Accessibility requires manual checking of `window.matchMedia` within the JS animation loop.
 **Action:** Always wrap canvas update logic (position changes) in a conditional check for `!mediaQuery.matches` while keeping the draw loop active to handle resizing/rendering static states.
+
+## 2026-02-08 - Menu Role Misuse
+**Learning:** Using `role="menu"` on a dropdown requires full keyboard navigation (arrow keys) support. Without it, the component is technically broken for screen readers. A standard disclosure pattern (container + buttons) is safer and more accessible when arrow key navigation is absent.
+**Action:** Default to standard buttons inside a disclosure container unless full menu semantics (arrow navigation) are implemented.
