@@ -109,6 +109,8 @@ export function Contact() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
+                    autoComplete="name"
                     required
                     className="w-full bg-white/50 dark:bg-brand-void/50 border border-black/10 dark:border-white/10 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:border-brand-palay focus:ring-1 focus:ring-brand-palay transition-all"
                     placeholder="Juan Dela Cruz"
@@ -121,6 +123,8 @@ export function Contact() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    autoComplete="email"
                     required
                     className="w-full bg-white/50 dark:bg-brand-void/50 border border-black/10 dark:border-white/10 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:border-brand-palay focus:ring-1 focus:ring-brand-palay transition-all"
                     placeholder="juan@example.com"
