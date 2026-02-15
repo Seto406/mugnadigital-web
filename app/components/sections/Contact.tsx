@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Mail, MapPin, Phone, ChevronDown, CheckCircle, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
@@ -8,6 +8,18 @@ import { Button } from '../ui/Button';
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const successRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (isSubmitted) {
+      // Small timeout to ensure element is mounted and ready for focus
+      setTimeout(() => {
+        if (successRef.current) {
+          successRef.current.focus();
+        }
+      }, 100);
+    }
+  }, [isSubmitted]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -87,7 +99,13 @@ export function Contact() {
                  <div className="w-16 h-16 bg-brand-palay/10 rounded-full flex items-center justify-center mb-6">
                    <CheckCircle className="w-8 h-8 text-brand-palay" />
                  </div>
-                 <h3 className="text-2xl font-bold text-foreground mb-2">Message Sent!</h3>
+                 <h3
+                   ref={successRef}
+                   tabIndex={-1}
+                   className="text-2xl font-bold text-foreground mb-2 focus:outline-none"
+                 >
+                   Message Sent!
+                 </h3>
                  <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-xs">
                    Thanks for reaching out. We&apos;ll get back to you shortly to discuss your project.
                  </p>
