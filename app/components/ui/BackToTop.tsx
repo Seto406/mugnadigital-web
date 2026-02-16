@@ -28,6 +28,12 @@ export function BackToTop() {
       top: 0,
       behavior: 'smooth',
     });
+
+    // Move focus to the Skip to content link to prevent focus trap at bottom
+    const skipLink = document.querySelector('a[href="#main-content"]') as HTMLElement;
+    if (skipLink) {
+      skipLink.focus();
+    }
   };
 
   return (
@@ -41,7 +47,7 @@ export function BackToTop() {
           className="fixed bottom-6 right-6 z-50 p-3 bg-[var(--brand-palay)] text-[var(--brand-void-static)] rounded-full shadow-lg hover:shadow-xl transition-shadow focus:outline-none focus:ring-2 focus:ring-[var(--brand-teal)] focus:ring-offset-2 focus:ring-offset-[var(--background)]"
           aria-label="Back to top"
         >
-          <ArrowUp className="w-6 h-6" />
+          <ArrowUp className="w-6 h-6" aria-hidden="true" />
         </motion.button>
       )}
     </AnimatePresence>
