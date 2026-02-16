@@ -49,3 +49,7 @@
 ## 2026-02-08 - Menu Role Misuse
 **Learning:** Using `role="menu"` on a dropdown requires full keyboard navigation (arrow keys) support. Without it, the component is technically broken for screen readers. A standard disclosure pattern (container + buttons) is safer and more accessible when arrow key navigation is absent.
 **Action:** Default to standard buttons inside a disclosure container unless full menu semantics (arrow navigation) are implemented.
+
+## 2026-06-05 - Back-to-Top Focus Trap
+**Learning:** "Back to Top" buttons often trap focus at the bottom of the page after activation, forcing keyboard users to tab through the entire page again. Also, fixed elements at the top of the DOM can intercept focus from "Skip to Content".
+**Action:** Move fixed elements to the end of the DOM and ensure "Back to Top" buttons programmatically move focus to the top of the content (e.g., the "Skip to content" link) upon activation.
