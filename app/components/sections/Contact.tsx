@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Mail, MapPin, Phone, ChevronDown, CheckCircle, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
@@ -8,6 +8,16 @@ import { Button } from '../ui/Button';
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const successRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (isSubmitted) {
+      const timeoutId = setTimeout(() => {
+        successRef.current?.focus();
+      }, 100);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [isSubmitted]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,7 +47,7 @@ export function Contact() {
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-lg bg-black/5 dark:bg-white/5 flex items-center justify-center shrink-0 border border-black/10 dark:border-white/10">
-                  <Mail className="w-6 h-6 text-brand-palay" />
+                  <Mail className="w-6 h-6 text-brand-palay" aria-hidden="true" />
                 </div>
                 <div>
                   <h4 className="text-foreground font-semibold mb-1">Email Us</h4>
@@ -49,7 +59,7 @@ export function Contact() {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-lg bg-black/5 dark:bg-white/5 flex items-center justify-center shrink-0 border border-black/10 dark:border-white/10">
-                  <Phone className="w-6 h-6 text-brand-palay" />
+                  <Phone className="w-6 h-6 text-brand-palay" aria-hidden="true" />
                 </div>
                 <div>
                   <h4 className="text-foreground font-semibold mb-1">Call Us</h4>
@@ -61,7 +71,7 @@ export function Contact() {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-lg bg-black/5 dark:bg-white/5 flex items-center justify-center shrink-0 border border-black/10 dark:border-white/10">
-                  <MapPin className="w-6 h-6 text-brand-palay" />
+                  <MapPin className="w-6 h-6 text-brand-palay" aria-hidden="true" />
                 </div>
                 <div>
                   <h4 className="text-foreground font-semibold mb-1">Visit Us</h4>
@@ -85,9 +95,15 @@ export function Contact() {
                  aria-live="polite"
                >
                  <div className="w-16 h-16 bg-brand-palay/10 rounded-full flex items-center justify-center mb-6">
-                   <CheckCircle className="w-8 h-8 text-brand-palay" />
+                   <CheckCircle className="w-8 h-8 text-brand-palay" aria-hidden="true" />
                  </div>
-                 <h3 className="text-2xl font-bold text-foreground mb-2">Message Sent!</h3>
+                 <h3
+                   className="text-2xl font-bold text-foreground mb-2"
+                   ref={successRef}
+                   tabIndex={-1}
+                 >
+                   Message Sent!
+                 </h3>
                  <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-xs">
                    Thanks for reaching out. We&apos;ll get back to you shortly to discuss your project.
                  </p>
@@ -109,6 +125,7 @@ export function Contact() {
                   <input
                     type="text"
                     id="name"
+                    autoComplete="name"
                     required
                     className="w-full bg-white/50 dark:bg-brand-void/50 border border-black/10 dark:border-white/10 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:border-brand-palay focus:ring-1 focus:ring-brand-palay transition-all"
                     placeholder="Juan Dela Cruz"
@@ -121,6 +138,7 @@ export function Contact() {
                   <input
                     type="email"
                     id="email"
+                    autoComplete="email"
                     required
                     className="w-full bg-white/50 dark:bg-brand-void/50 border border-black/10 dark:border-white/10 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:border-brand-palay focus:ring-1 focus:ring-brand-palay transition-all"
                     placeholder="juan@example.com"
@@ -144,7 +162,7 @@ export function Contact() {
                     <option value="partnership">Partnership</option>
                     <option value="other">Other</option>
                   </select>
-                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/50 pointer-events-none" />
+                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/50 pointer-events-none" aria-hidden="true" />
                 </div>
               </div>
 

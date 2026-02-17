@@ -53,3 +53,7 @@
 ## 2026-06-05 - Back-to-Top Focus Trap
 **Learning:** "Back to Top" buttons often trap focus at the bottom of the page after activation, forcing keyboard users to tab through the entire page again. Also, fixed elements at the top of the DOM can intercept focus from "Skip to Content".
 **Action:** Move fixed elements to the end of the DOM and ensure "Back to Top" buttons programmatically move focus to the top of the content (e.g., the "Skip to content" link) upon activation.
+
+## 2026-06-12 - Focus Management on Conditional Render
+**Learning:** When replacing content dynamically (e.g., form success state), focus is often lost to the body. Programmatically moving focus to the new content requires `useEffect` and often a small timeout to ensure the element exists in the DOM, especially when animations are involved.
+**Action:** Use a `useEffect` hook triggered by the state change to `focus()` the new content, utilizing a `ref` and `tabIndex={-1}` on the target element.
