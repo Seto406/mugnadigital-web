@@ -24,21 +24,31 @@ export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
     const container = containerRef.current;
     if (!container) return;
 
-    const checkScroll = () => {
+    let ticking = false;
+
+    const updateHint = () => {
       // Only show hint if content overflows and we haven't scrolled much
       if (container.scrollWidth > container.clientWidth && container.scrollLeft < 20) {
         setShowHint(true);
       } else {
         setShowHint(false);
       }
+      ticking = false;
+    };
+
+    const checkScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHint);
+        ticking = true;
+      }
     };
 
     // Initial check
-    checkScroll();
+    updateHint();
 
     // Listeners
-    container.addEventListener('scroll', checkScroll);
-    window.addEventListener('resize', checkScroll);
+    container.addEventListener('scroll', checkScroll, { passive: true });
+    window.addEventListener('resize', checkScroll, { passive: true });
 
     return () => {
       container.removeEventListener('scroll', checkScroll);
