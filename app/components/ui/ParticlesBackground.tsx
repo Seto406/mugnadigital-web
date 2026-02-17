@@ -81,7 +81,7 @@ export default function ParticlesBackground() {
 
     const drawParticle = (p: Particle) => {
       if (!ctx) return;
-      ctx.fillStyle = `rgba(${brandColorRgb}, ${p.opacity})`;
+      ctx.globalAlpha = p.opacity;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
       ctx.fill();
@@ -98,6 +98,8 @@ export default function ParticlesBackground() {
     const animate = () => {
       if (!ctx || !canvas) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = `rgb(${brandColorRgb})`;
 
       particles.forEach((particle) => {
         if (!prefersReducedMotion) {
