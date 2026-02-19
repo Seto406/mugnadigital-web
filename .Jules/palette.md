@@ -57,3 +57,7 @@
 ## 2026-06-12 - Focus Management on Conditional Render
 **Learning:** When replacing content dynamically (e.g., form success state), focus is often lost to the body. Programmatically moving focus to the new content requires `useEffect` and often a small timeout to ensure the element exists in the DOM, especially when animations are involved.
 **Action:** Use a `useEffect` hook triggered by the state change to `focus()` the new content, utilizing a `ref` and `tabIndex={-1}` on the target element.
+
+## 2026-02-09 - Interactive Scroll Hints
+**Learning:** Visual scroll indicators (like fading edges or bounce animations) inform users of overflow but fail to provide a mechanism for mouse users without horizontal scrolling hardware (e.g., trackpads).
+**Action:** Replace purely decorative scroll hints with interactive "Previous/Next" buttons that programmatically scroll the container, ensuring full accessibility for all input devices.
