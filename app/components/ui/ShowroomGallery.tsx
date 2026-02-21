@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, ChevronRight } from 'lucide-react';
+import { ArrowUpRight, ChevronRight, ChevronLeft } from 'lucide-react';
 import Image from 'next/image';
 
 export interface Project {
@@ -19,6 +19,8 @@ interface ShowroomGalleryProps {
 export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [showHint, setShowHint] = useState(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -26,25 +28,29 @@ export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
 
     let ticking = false;
 
-    const updateHint = () => {
+    const updateScrollState = () => {
       // Only show hint if content overflows and we haven't scrolled much
       if (container.scrollWidth > container.clientWidth && container.scrollLeft < 20) {
         setShowHint(true);
       } else {
         setShowHint(false);
       }
+
+      setCanScrollLeft(container.scrollLeft > 0);
+      setCanScrollRight(container.scrollLeft < container.scrollWidth - container.clientWidth - 10);
+
       ticking = false;
     };
 
     const checkScroll = () => {
       if (!ticking) {
-        window.requestAnimationFrame(updateHint);
+        window.requestAnimationFrame(updateScrollState);
         ticking = true;
       }
     };
 
     // Initial check
-    updateHint();
+    updateScrollState();
 
     // Listeners
     container.addEventListener('scroll', checkScroll, { passive: true });
@@ -56,8 +62,48 @@ export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
     };
   }, []);
 
+  const scroll = (direction: 'left' | 'right') => {
+    if (containerRef.current) {
+      const scrollAmount = containerRef.current.clientWidth / 2;
+      containerRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="relative group/gallery">
+      <AnimatePresence>
+        {canScrollLeft && (
+          <motion.button
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -10 }}
+            onClick={() => scroll('left')}
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-30 p-3 bg-white/80 dark:bg-black/50 rounded-full shadow-lg backdrop-blur-sm hover:bg-white dark:hover:bg-black/80 text-foreground transition-all -ml-5 border border-white/20"
+            aria-label="Scroll previous projects"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {canScrollRight && (
+          <motion.button
+            initial={{ opacity: 0, x: 10 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 10 }}
+            onClick={() => scroll('right')}
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-30 p-3 bg-white/80 dark:bg-black/50 rounded-full shadow-lg backdrop-blur-sm hover:bg-white dark:hover:bg-black/80 text-foreground transition-all -mr-5 border border-white/20"
+            aria-label="Scroll next projects"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
       <div
         ref={containerRef}
         className="flex overflow-x-auto snap-x snap-mandatory gap-6 md:gap-8 pb-12 -mx-4 px-4 md:-mx-0 md:px-0 hide-scrollbar focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-palay)] rounded-xl"
@@ -110,7 +156,7 @@ export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute right-0 top-0 bottom-12 w-32 bg-gradient-to-l from-[var(--background)] to-transparent pointer-events-none flex items-center justify-end pr-4 md:pr-0 z-20"
+            className="absolute right-0 top-0 bottom-12 w-32 bg-gradient-to-l from-[var(--background)] to-transparent pointer-events-none flex items-center justify-end pr-4 md:pr-0 z-20 md:hidden"
             aria-hidden="true"
           >
             <ChevronRight className="w-10 h-10 text-[var(--brand-palay)] animate-pulse drop-shadow-lg" />
