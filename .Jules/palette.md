@@ -57,3 +57,7 @@
 ## 2026-06-12 - Focus Management on Conditional Render
 **Learning:** When replacing content dynamically (e.g., form success state), focus is often lost to the body. Programmatically moving focus to the new content requires `useEffect` and often a small timeout to ensure the element exists in the DOM, especially when animations are involved.
 **Action:** Use a `useEffect` hook triggered by the state change to `focus()` the new content, utilizing a `ref` and `tabIndex={-1}` on the target element.
+
+## 2026-06-25 - Reduced Motion for Infinite Animations
+**Learning:** Infinite animations (loops) in `framer-motion` do not automatically respect `prefers-reduced-motion`. Users with vestibular disorders may find continuous rotation or floating effects nauseating.
+**Action:** Use the `useReducedMotion` hook to conditionally disable or simplify infinite animations (e.g., setting `animate` to a static value) in components like loading spinners or decorative floating elements.
