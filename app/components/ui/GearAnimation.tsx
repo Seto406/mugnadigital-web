@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Settings } from 'lucide-react';
 
 interface GearAnimationProps {
@@ -18,10 +18,12 @@ export default function GearAnimation({
   className = '',
   reverse = false,
 }: GearAnimationProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.div
       className={`absolute opacity-10 pointer-events-none ${className}`}
-      animate={{ rotate: reverse ? -360 : 360 }}
+      animate={shouldReduceMotion ? {} : { rotate: reverse ? -360 : 360 }}
       transition={{
         duration: duration,
         repeat: Infinity,
