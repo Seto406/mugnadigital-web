@@ -41,7 +41,7 @@ export function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <Reveal key={index} delay={index * 0.1} className="h-full">
+            <Reveal key={service.title} delay={index * 0.1} className="h-full">
               <div
                 className="p-8 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-brand-palay/50 transition-colors group h-full"
               >
