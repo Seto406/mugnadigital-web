@@ -22,6 +22,24 @@ export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
+  // Manual reduced motion check for reliability
+  const [shouldReduceMotion, setShouldReduceMotion] = useState(false);
+
+  useEffect(() => {
+    // Check reduced motion preference
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setShouldReduceMotion(mediaQuery.matches);
+
+    const handleMotionChange = (e: MediaQueryListEvent) => {
+      setShouldReduceMotion(e.matches);
+    };
+    mediaQuery.addEventListener('change', handleMotionChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleMotionChange);
+    };
+  }, []);
+
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -67,7 +85,7 @@ export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
       const scrollAmount = containerRef.current.clientWidth / 2;
       containerRef.current.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
+        behavior: shouldReduceMotion ? 'auto' : 'smooth'
       });
     }
   };
@@ -83,6 +101,7 @@ export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
             onClick={() => scroll('left')}
             className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-30 p-3 bg-white/80 dark:bg-black/50 rounded-full shadow-lg backdrop-blur-sm hover:bg-white dark:hover:bg-black/80 text-foreground transition-all -ml-5 border border-white/20"
             aria-label="Scroll previous projects"
+            aria-controls="gallery-container"
           >
             <ChevronLeft className="w-6 h-6" />
           </motion.button>
@@ -98,6 +117,7 @@ export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
             onClick={() => scroll('right')}
             className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-30 p-3 bg-white/80 dark:bg-black/50 rounded-full shadow-lg backdrop-blur-sm hover:bg-white dark:hover:bg-black/80 text-foreground transition-all -mr-5 border border-white/20"
             aria-label="Scroll next projects"
+            aria-controls="gallery-container"
           >
             <ChevronRight className="w-6 h-6" />
           </motion.button>
@@ -105,9 +125,10 @@ export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
       </AnimatePresence>
 
       <div
+        id="gallery-container"
         ref={containerRef}
         className="flex overflow-x-auto snap-x snap-mandatory gap-6 md:gap-8 pb-12 -mx-4 px-4 md:-mx-0 md:px-0 hide-scrollbar focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-palay)] rounded-xl"
-        style={{ scrollBehavior: 'smooth' }}
+        style={{ scrollBehavior: shouldReduceMotion ? 'auto' : 'smooth' }}
         tabIndex={0}
         aria-label="Project Gallery"
       >
@@ -115,7 +136,7 @@ export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
           <div key={index} className="flex-none w-[85vw] md:w-[600px] snap-center first:pl-0">
             <motion.div
                className="group relative overflow-hidden rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:border-brand-palay/50 transition-colors h-full flex flex-col shadow-sm dark:shadow-none"
-               initial={{ opacity: 0, scale: 0.95 }}
+               initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.95 }}
                whileInView={{ opacity: 1, scale: 1 }}
                viewport={{ margin: "-20%" }}
                transition={{ duration: 0.5, ease: "easeOut" }}
