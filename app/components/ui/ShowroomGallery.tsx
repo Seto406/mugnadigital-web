@@ -141,8 +141,12 @@ export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
                   {project.description}
                 </p>
 
-                <a href="#" className="inline-flex items-center gap-2 text-sm font-medium text-slate-900 dark:text-white hover:text-brand-palay transition-colors mt-auto group/link">
-                  View Case Study <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-slate-900 dark:text-white hover:text-brand-palay transition-colors mt-auto group/link"
+                  aria-label={`View case study for ${project.title}`}
+                >
+                  View Case Study <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" aria-hidden="true" />
                 </a>
               </div>
             </motion.div>
