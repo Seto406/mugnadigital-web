@@ -43,7 +43,7 @@ export function Work() {
           </Reveal>
           <Reveal delay={0.2}>
             <button className="text-brand-palay hover:text-foreground flex items-center gap-2 transition-colors font-medium">
-                View All Projects <ArrowUpRight className="w-4 h-4" />
+                View All Projects <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
             </button>
           </Reveal>
         </div>
