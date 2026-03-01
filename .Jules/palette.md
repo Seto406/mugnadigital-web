@@ -57,3 +57,7 @@
 ## 2026-06-12 - Focus Management on Conditional Render
 **Learning:** When replacing content dynamically (e.g., form success state), focus is often lost to the body. Programmatically moving focus to the new content requires `useEffect` and often a small timeout to ensure the element exists in the DOM, especially when animations are involved.
 **Action:** Use a `useEffect` hook triggered by the state change to `focus()` the new content, utilizing a `ref` and `tabIndex={-1}` on the target element.
+
+## 2026-06-15 - Ambiguous Links & Decorative Icons
+**Learning:** Repeating, ambiguous link texts (e.g., 'View Case Study') leave screen reader users unaware of the link's specific destination, especially when navigating via a link list. Additionally, purely decorative icons adjacent to these texts or inside buttons can add noise to screen reader announcements.
+**Action:** Always provide an explicit, contextual `aria-label` for ambiguous links and ensure purely decorative icons have `aria-hidden="true"`.
