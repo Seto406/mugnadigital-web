@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useId } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ChevronRight, ChevronLeft } from 'lucide-react';
 import Image from 'next/image';
@@ -19,6 +19,7 @@ interface ShowroomGalleryProps {
 export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [showHint, setShowHint] = useState(false);
+  const galleryId = useId();
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
@@ -83,8 +84,9 @@ export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
             onClick={() => scroll('left')}
             className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-30 p-3 bg-white/80 dark:bg-black/50 rounded-full shadow-lg backdrop-blur-sm hover:bg-white dark:hover:bg-black/80 text-foreground transition-all -ml-5 border border-white/20"
             aria-label="Scroll previous projects"
+            aria-controls={`showroom-gallery-${galleryId}`}
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-6 h-6" aria-hidden="true" />
           </motion.button>
         )}
       </AnimatePresence>
@@ -98,13 +100,15 @@ export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
             onClick={() => scroll('right')}
             className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-30 p-3 bg-white/80 dark:bg-black/50 rounded-full shadow-lg backdrop-blur-sm hover:bg-white dark:hover:bg-black/80 text-foreground transition-all -mr-5 border border-white/20"
             aria-label="Scroll next projects"
+            aria-controls={`showroom-gallery-${galleryId}`}
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-6 h-6" aria-hidden="true" />
           </motion.button>
         )}
       </AnimatePresence>
 
       <div
+        id={`showroom-gallery-${galleryId}`}
         ref={containerRef}
         className="flex overflow-x-auto snap-x snap-mandatory gap-6 md:gap-8 pb-12 -mx-4 px-4 md:-mx-0 md:px-0 hide-scrollbar focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-palay)] rounded-xl"
         style={{ scrollBehavior: 'smooth' }}
@@ -141,8 +145,12 @@ export const ShowroomGallery = ({ projects }: ShowroomGalleryProps) => {
                   {project.description}
                 </p>
 
-                <a href="#" className="inline-flex items-center gap-2 text-sm font-medium text-slate-900 dark:text-white hover:text-brand-palay transition-colors mt-auto group/link">
-                  View Case Study <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-slate-900 dark:text-white hover:text-brand-palay transition-colors mt-auto group/link"
+                  aria-label={`View case study for ${project.title}`}
+                >
+                  View Case Study <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" aria-hidden="true" />
                 </a>
               </div>
             </motion.div>
