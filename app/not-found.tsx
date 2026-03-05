@@ -1,33 +1,17 @@
-import { Button } from './components/ui/Button';
-import ParticlesBackground from './components/ui/ParticlesBackground';
-
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-[var(--background)]">
-      <ParticlesBackground />
-
-      <div className="relative z-10 text-center px-4">
-        <h1 className="text-[12rem] font-bold text-[var(--brand-palay)] opacity-20 leading-none select-none">
-          404
-        </h1>
-
-        <div className="space-y-6 -mt-10">
-          <h2 className="text-3xl md:text-5xl font-bold text-[var(--foreground)]">
-            Lost in the <span className="text-[var(--brand-palay)]">Digital Void</span>
-          </h2>
-
-          <p className="text-lg text-[var(--foreground)]/70 max-w-md mx-auto">
-            The page you&apos;re looking for has been disconnected from the matrix.
-            Let&apos;s guide you back to safety.
-          </p>
-
-          <div className="flex justify-center gap-4">
-            <Button variant="primary" href="/">
-              Return Home
-            </Button>
-          </div>
-        </div>
+    <main className="grid min-h-screen place-items-center bg-slate-950 px-6 text-center text-slate-100">
+      <div>
+        <p className="text-sm uppercase tracking-[0.2em] text-sky-300">404</p>
+        <h1 className="mt-2 text-4xl font-bold">Page not found</h1>
+        <p className="mt-4 text-slate-300">The page you requested doesn&apos;t exist or has been moved.</p>
+        <a
+          href="/"
+          className="mt-8 inline-block rounded-full bg-emerald-400 px-5 py-2.5 font-semibold text-slate-950 transition hover:bg-emerald-300"
+        >
+          Back to home
+        </a>
       </div>
-    </div>
+    </main>
   );
 }
