@@ -74,6 +74,8 @@ const time2 = end2 - start2;
 const ops2 = expensiveOps;
 console.log(`Throttled:   Executed expensive logic ${ops2} times in ${time2.toFixed(2)}ms`);
 
+// Logging the variable to remove ESLint unused-var warning
+console.log(`Final Hint State: ${showHint}`);
 
 // Summary
 console.log(`\nImprovement: Reduced expensive operations by ${(ops1 / ops2).toFixed(0)}x`);
