@@ -57,3 +57,7 @@
 ## 2026-06-12 - Focus Management on Conditional Render
 **Learning:** When replacing content dynamically (e.g., form success state), focus is often lost to the body. Programmatically moving focus to the new content requires `useEffect` and often a small timeout to ensure the element exists in the DOM, especially when animations are involved.
 **Action:** Use a `useEffect` hook triggered by the state change to `focus()` the new content, utilizing a `ref` and `tabIndex={-1}` on the target element.
+
+## 2026-03-09 - Hard Navigations on 404 Pages
+**Learning:** Using standard HTML `<a>` tags for navigation links on custom 404 error pages forces a full page reload, breaking the smooth client-side routing experience provided by modern frameworks like Next.js and significantly degrading perceived performance.
+**Action:** Always use the framework's native link component (e.g., `next/link`) instead of standard `<a>` tags for internal navigation, even on error boundary or custom 404 pages.
