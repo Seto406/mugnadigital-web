@@ -57,3 +57,7 @@
 ## 2026-06-12 - Focus Management on Conditional Render
 **Learning:** When replacing content dynamically (e.g., form success state), focus is often lost to the body. Programmatically moving focus to the new content requires `useEffect` and often a small timeout to ensure the element exists in the DOM, especially when animations are involved.
 **Action:** Use a `useEffect` hook triggered by the state change to `focus()` the new content, utilizing a `ref` and `tabIndex={-1}` on the target element.
+
+## 2024-05-18 - Improve Screen Reader Context for Gallery Links
+**Learning:** Repeating, ambiguous link texts (e.g., 'View Case Study') lack context for screen reader users navigating out-of-flow. In addition, scroll controls should programmatically associate with their containers using `aria-controls`. Purely decorative icons used inside buttons/links should use `aria-hidden="true"` to prevent redundant screen reader announcements.
+**Action:** Always provide an explicit, contextual `aria-label` (e.g., `aria-label="View case study for [Item]"`) for repeating ambiguous links, add `aria-controls` to scroll buttons pointing to the `id` of the scrollable container they manipulate, and ensure all purely decorative icons have `aria-hidden="true"`.
