@@ -9,6 +9,7 @@ const container = {
   scrollLeft: 0,
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 let showHint = false;
 const setShowHint = (val) => { showHint = val; };
 
