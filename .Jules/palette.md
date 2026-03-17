@@ -57,3 +57,7 @@
 ## 2026-06-12 - Focus Management on Conditional Render
 **Learning:** When replacing content dynamically (e.g., form success state), focus is often lost to the body. Programmatically moving focus to the new content requires `useEffect` and often a small timeout to ensure the element exists in the DOM, especially when animations are involved.
 **Action:** Use a `useEffect` hook triggered by the state change to `focus()` the new content, utilizing a `ref` and `tabIndex={-1}` on the target element.
+
+## 2025-02-14 - Skip-to-Content Focus Target
+**Learning:** A 'Skip to content' link requires a valid, focusable target. Setting programmatic focus to a `<main>` container using `tabIndex={-1}` requires `outline-none` to prevent an unsightly focus ring when activated, and components like `BackToTop` rely on this target to avoid focus traps.
+**Action:** Always ensure the target of a skip link has `id="main-content"`, `tabIndex={-1}`, and `outline-none` applied to manage focus cleanly.
