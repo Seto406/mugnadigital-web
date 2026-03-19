@@ -10,7 +10,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <a
+          href="#main-content"
+          className="absolute left-0 top-0 -translate-y-full bg-[var(--brand-palay)] text-[var(--brand-void)] px-4 py-2 font-bold z-[100] transition-transform focus:translate-y-0"
+        >
+          Skip to content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }
