@@ -28,7 +28,7 @@ const pillars = [
 
 export default function Home() {
   return (
-    <main className="bg-slate-950 text-slate-100">
+    <main id="main-content" tabIndex={-1} className="bg-slate-950 text-slate-100 outline-none">
       <section className="relative isolate overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(14,165,233,0.25),transparent_45%),radial-gradient(circle_at_80%_20%,_rgba(16,185,129,0.2),transparent_38%),linear-gradient(to_bottom,_#020617,_#0f172a)]" />
         <div className="mx-auto max-w-6xl px-6 pb-20 pt-8 lg:px-8 lg:pb-28 lg:pt-10">
@@ -40,14 +40,14 @@ export default function Home() {
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full border border-sky-300/40 bg-sky-400/10 px-4 py-2 text-sm font-semibold text-sky-100 transition hover:bg-sky-300/20"
             >
-              Book a free strategy call <ArrowRight size={16} />
+              Book a free strategy call <ArrowRight size={16} aria-hidden="true" />
             </a>
           </header>
 
           <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div>
               <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-200">
-                <Sparkles size={14} />
+                <Sparkles size={14} aria-hidden="true" />
                 Rebuilt with intention
               </p>
               <h1 className="text-balance text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
@@ -62,7 +62,7 @@ export default function Home() {
                   className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-6 py-3 text-sm font-bold text-slate-950 transition hover:bg-emerald-300"
                 >
                   See sample outcomes
-                  <ArrowRight size={16} />
+                  <ArrowRight size={16} aria-hidden="true" />
                 </a>
                 <a
                   href="#services"
@@ -78,7 +78,7 @@ export default function Home() {
               <ul className="space-y-3">
                 {pillars.map((pillar) => (
                   <li key={pillar} className="flex items-start gap-3 text-slate-200">
-                    <CheckCircle2 className="mt-0.5 text-emerald-300" size={18} />
+                    <CheckCircle2 className="mt-0.5 text-emerald-300" size={18} aria-hidden="true" />
                     <span>{pillar}</span>
                   </li>
                 ))}
@@ -102,13 +102,13 @@ export default function Home() {
 
       <section id="services" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
         <div className="mb-12 flex items-center gap-3">
-          <Rocket className="text-sky-300" />
+          <Rocket className="text-sky-300" aria-hidden="true" />
           <h2 className="text-3xl font-bold">Services engineered for growth</h2>
         </div>
         <div className="grid gap-5 md:grid-cols-3">
           {services.map(({ title, description, icon: Icon }) => (
             <article key={title} className="group rounded-2xl border border-white/10 bg-slate-900 p-6 transition hover:-translate-y-1 hover:border-emerald-300/40">
-              <Icon className="mb-4 text-emerald-300" size={24} />
+              <Icon className="mb-4 text-emerald-300" size={24} aria-hidden="true" />
               <h3 className="text-xl font-semibold">{title}</h3>
               <p className="mt-3 text-slate-300">{description}</p>
             </article>
@@ -142,7 +142,7 @@ export default function Home() {
           className="mt-8 inline-flex items-center gap-2 rounded-full bg-sky-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-sky-300"
         >
           Start the conversation
-          <ArrowRight size={16} />
+          <ArrowRight size={16} aria-hidden="true" />
         </a>
       </section>
     </main>
