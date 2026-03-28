@@ -57,3 +57,7 @@
 ## 2026-06-12 - Focus Management on Conditional Render
 **Learning:** When replacing content dynamically (e.g., form success state), focus is often lost to the body. Programmatically moving focus to the new content requires `useEffect` and often a small timeout to ensure the element exists in the DOM, especially when animations are involved.
 **Action:** Use a `useEffect` hook triggered by the state change to `focus()` the new content, utilizing a `ref` and `tabIndex={-1}` on the target element.
+
+## 2026-06-15 - Controlled Scroll Accessibility
+**Learning:** Custom scroll buttons (Previous/Next) for overflow containers are often disconnected from the content they control. Without `aria-controls`, screen reader users might not understand the relationship. Also, smooth scrolling via JS (`scrollBy`) ignores `prefers-reduced-motion` settings.
+**Action:** Link scroll buttons to the container using `aria-controls` + `id`, and explicitly check `useReducedMotion()` to toggle between `behavior: 'smooth'` and `'auto'`.
