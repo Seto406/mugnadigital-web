@@ -57,3 +57,7 @@
 ## 2026-06-12 - Focus Management on Conditional Render
 **Learning:** When replacing content dynamically (e.g., form success state), focus is often lost to the body. Programmatically moving focus to the new content requires `useEffect` and often a small timeout to ensure the element exists in the DOM, especially when animations are involved.
 **Action:** Use a `useEffect` hook triggered by the state change to `focus()` the new content, utilizing a `ref` and `tabIndex={-1}` on the target element.
+
+## 2026-06-14 - Smooth Scrolling Accessibility
+**Learning:** Adding `scroll-behavior: smooth` to the `html` element is a great UX improvement for anchor links, but can cause nausea or dizziness for users with vestibular disorders.
+**Action:** Always wrap `scroll-behavior: smooth` in a `@media (prefers-reduced-motion: no-preference)` query to ensure smooth scrolling is only applied when safe to do so.
