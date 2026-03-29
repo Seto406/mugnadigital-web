@@ -57,3 +57,6 @@
 ## 2026-06-12 - Focus Management on Conditional Render
 **Learning:** When replacing content dynamically (e.g., form success state), focus is often lost to the body. Programmatically moving focus to the new content requires `useEffect` and often a small timeout to ensure the element exists in the DOM, especially when animations are involved.
 **Action:** Use a `useEffect` hook triggered by the state change to `focus()` the new content, utilizing a `ref` and `tabIndex={-1}` on the target element.
+## 2024-03-07 - Contextual ARIA Labels for Repeated Link Text
+**Learning:** Ambiguous repeating link text like "View Case Study" or "Read More" hinders users who navigate using screen readers out-of-flow (e.g., via a list of links). Relying purely on surrounding context or parent container is insufficient for this navigation method.
+**Action:** When creating repeating action links in cards or lists (e.g., in a gallery), provide a descriptive `aria-label` that includes the specific item's context (e.g., `aria-label={"View case study for " + project.title}`) to make the link meaningful when read in isolation.
