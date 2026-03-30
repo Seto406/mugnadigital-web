@@ -47,7 +47,7 @@ export function Services() {
               >
                 <FloatingElement delay={index * 0.2}>
                   <div className="w-12 h-12 rounded-lg bg-brand-palay/10 flex items-center justify-center mb-6 group-hover:bg-brand-palay/20 transition-colors">
-                    <service.icon className="w-6 h-6 text-brand-palay" />
+                    <service.icon className="w-6 h-6 text-brand-palay" aria-hidden="true" />
                   </div>
                 </FloatingElement>
                 <h3 className="text-xl font-semibold text-foreground mb-3">
