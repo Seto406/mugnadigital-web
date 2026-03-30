@@ -57,3 +57,7 @@
 ## 2026-06-12 - Focus Management on Conditional Render
 **Learning:** When replacing content dynamically (e.g., form success state), focus is often lost to the body. Programmatically moving focus to the new content requires `useEffect` and often a small timeout to ensure the element exists in the DOM, especially when animations are involved.
 **Action:** Use a `useEffect` hook triggered by the state change to `focus()` the new content, utilizing a `ref` and `tabIndex={-1}` on the target element.
+
+## 2026-06-15 - Redundant Announcers in Repeated Cards
+**Learning:** In galleries and lists, repetitive links like "Read More" or "View Case Study" lose context out of flow, and decorative icons inside them (e.g., arrows) are announced repeatedly if not hidden, creating a confusing screen reader experience.
+**Action:** Always provide contextual `aria-label`s for repeated actions (e.g., "View case study for [Item]"), hide decorative icons with `aria-hidden="true"`, and connect custom scroll buttons to their containers using `aria-controls`.
