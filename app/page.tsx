@@ -28,7 +28,7 @@ const pillars = [
 
 export default function Home() {
   return (
-    <main className="bg-slate-950 text-slate-100">
+    <main id="main-content" tabIndex={-1} className="bg-slate-950 text-slate-100 outline-none focus:outline-none">
       <section className="relative isolate overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(14,165,233,0.25),transparent_45%),radial-gradient(circle_at_80%_20%,_rgba(16,185,129,0.2),transparent_38%),linear-gradient(to_bottom,_#020617,_#0f172a)]" />
         <div className="mx-auto max-w-6xl px-6 pb-20 pt-8 lg:px-8 lg:pb-28 lg:pt-10">
