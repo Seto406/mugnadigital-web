@@ -57,3 +57,7 @@
 ## 2026-06-12 - Focus Management on Conditional Render
 **Learning:** When replacing content dynamically (e.g., form success state), focus is often lost to the body. Programmatically moving focus to the new content requires `useEffect` and often a small timeout to ensure the element exists in the DOM, especially when animations are involved.
 **Action:** Use a `useEffect` hook triggered by the state change to `focus()` the new content, utilizing a `ref` and `tabIndex={-1}` on the target element.
+
+## 2026-06-25 - Contextual Link Labels in Custom Scroll Areas
+**Learning:** Repetitive links within custom scroll containers (like "View Case Study" in a project gallery) create an ambiguous experience for screen reader users. Additionally, custom scroll navigation buttons must be explicitly linked to their container via `aria-controls`.
+**Action:** Always provide contextual `aria-label`s for repetitive links (e.g., `aria-label="View case study for [Project Title]"`) and ensure custom scroll controls use `aria-controls` pointing to the `id` of the scrollable container.
