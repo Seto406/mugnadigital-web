@@ -57,3 +57,11 @@
 ## 2026-06-12 - Focus Management on Conditional Render
 **Learning:** When replacing content dynamically (e.g., form success state), focus is often lost to the body. Programmatically moving focus to the new content requires `useEffect` and often a small timeout to ensure the element exists in the DOM, especially when animations are involved.
 **Action:** Use a `useEffect` hook triggered by the state change to `focus()` the new content, utilizing a `ref` and `tabIndex={-1}` on the target element.
+
+## 2026-06-20 - Contextualizing Repeating Link Text
+**Learning:** Ambiguous link text like "View Case Study" or "Read More" repeated across a list of items is a common accessibility issue because screen reader users navigating out-of-flow (e.g., via a list of links) lack context for what the link refers to.
+**Action:** Always provide an explicit, contextual `aria-label` (e.g., `aria-label="View case study for [Project Name]"`) to repeating links to ensure they make sense independently.
+
+## 2026-06-20 - Custom Scroll Navigation Relationships
+**Learning:** When implementing custom visual scroll controls (like "Previous" and "Next" buttons for a horizontal gallery), the relationship between the buttons and the container they control is often implicit visually but absent semantically.
+**Action:** Use `aria-controls="[id-of-scroll-container]"` on the custom navigation buttons to explicitly define the relationship for assistive technologies.
